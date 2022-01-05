@@ -1,0 +1,70 @@
+ {:profiles
+  {:Default {:default true
+            :sim     150
+            :delay   500
+            :alone   500
+            :held    500}}
+ 
+ :simlayers   {
+        :c-cmd {:key :c}
+        :m-cmd {:key :m}
+        :comma-ctrl {:key :comma}
+        :x-ctrl {:key :x}
+ }
+
+ :main [{:des "left shift + space = command + space"
+                :rules [[:!Sspacebar :!Cspacebar]]}
+        { :des "rshift + backsp = opt + backsp" 
+                :rules [[:!Rdelete_or_backspace :!Odelete_or_backspace]]}
+        {:des "insert -> copy screenshot"
+                :rules [[:insert :!STC4]]}
+        {:des "slash = shift if held with another key"
+                :rules [[:##slash :right_shift nil {:alone :slash}]]}
+        {:des "shift + slash = qmark more reliably (simultaneous)" 
+                :rules [[[:left_shift :slash] :!Rslash] [[:right_shift :slash] :!Rslash]]}
+        {:des "rshift + caps = caps lock"
+                :rules [[:!Rcaps_lock :caps_lock]] }
+        {:des "lshift = espace if alone" 
+                :rules [[:##left_shift :left_shift nil {:alone :escape}]]}
+        {:des "rshift = home layer if alone" 
+                :rules [[:##right_shift :right_shift nil {:alone ["caps-layer" 0 ]}]]}
+        
+       
+
+        {:des "m-cmd mapping"
+                :rules [:m-cmd
+                        [:f :!Cf] [:w :!Cw] [:r :!Cr] [:s :!Cs] [:t :!Ct] [:tab :!Ctab]
+                        [:grave_accent_and_tilde :!Cgrave_accent_and_tilde] [:d :!Cd] [:a :!Ca] [:z :!Cz] [:x :!Cx] [:c :!Cc] [:v :!Cv]]}
+
+        {:des "c-cmd mapping"
+                :rules [:c-cmd
+                        [:k :!Cdown_arrow caps-layer]
+                        [:k :!Ck !caps-layer]
+                        [:l :!Cl] [:n :!Cn] [:p :!Cp]
+                        [:comma :!Ccomma] [:period :!Cperiod] [:slash :!Cslash]]}
+        {:des "x-ctrl mapping"
+                :rules [:x-ctrl
+                        [:u :!Wu] [:o :!Wo] [:p :!Wp] [:h :!Wh] [:j :!Wj] [:k :!Wk]
+                        [:l :!Wl] [:n :!Wn] [:m :!Wm]
+                        [:slash :!Cslash]]}
+        {:des "comma-ctrl mapping"
+                :rules [:comma-ctrl
+                        [:a :!Wa] [:e :!We] [:r :!Wr] [:n :!Wn]
+                        [:m :!Wm] [:spacebar [:comma :spacebar]] [:s :!Cs]]}
+
+        {:des "caps-layer mapping"
+                :rules [:caps-layer
+                 [:u [:!S9 ]] [:o [:!S0 ]] [:y [:!Sopen_bracket ]] [:p [:!Sclose_bracket ]]
+                 [:##i [{:key :up_arrow :repeat true}]] [:##l [{:key :right_arrow :repeat true}]]
+                 [:##k [{:key :down_arrow :repeat true}]] [:##j [{:key :left_arrow :repeat true}]]
+                [:##s :left_shift]
+                [:##a :left_option]
+                 ]}
+
+        
+        {:des "caps lock if alone sets caps-layer to true"
+                :rules [[:caps_lock ["caps-layer" 0] ["caps-layer" 1]]
+                        [:caps_lock ["caps-layer" 1] ["caps-layer" 0]]
+                ]}
+
+]}
