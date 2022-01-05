@@ -10,10 +10,12 @@
     :open "open \"%s\""
     :open-app "open -a \"%s\""
 } 
- 
+ ;; simlayers are like layers, but only work in a certain 'time frame'. 
+ ;; you should probably only use them for letter keys that you type regularly.
+ ;; for other keys, e.g. espace, you can probably just use a normal layer. 
  :simlayers   {
         :caps-mod {:key :caps_lock}
-        :launcher {:key :semicolon}
+
         :backspace-mod {:key :delete_or_backspace}
         :c-cmd {:key :c}
         :m-cmd {:key :m}
@@ -21,7 +23,14 @@
         :x-ctrl {:key :x}
  }
 
+ :layers {
+        :z-mod {:key :z }
+        :q-mod {:key :q}
+ }
+
  :main [
+ 
+
         ;; misc modifications 
         {:des "left shift + space = command + space"
                 :rules [[:!Sspacebar :!Cspacebar]]}
@@ -29,15 +38,7 @@
                 :rules [[:!Rdelete_or_backspace :!Odelete_or_backspace]]}
         {:des "insert -> copy screenshot"
                 :rules [[:insert :!STC4]]}
-
-
-        ;; slash acts as shift when held with another key
-        {:des "slash = shift if held with another key"
-                :rules [[:##slash :right_shift nil {:alone :slash}]]}
-        {:des "shift + slash = qmark more reliably (simultaneous)" 
-                :rules [[[:left_shift :slash] :!Rslash] [[:right_shift :slash] :!Rslash]]}
-        {:des "slash + space only equals slash + space" :rules [[:!Rspacebar [:slash :spacebar]]]}
-        
+       
         ;; when caps is held, it sets caps-mod to 1. this means that unlike the other
         ;; simlayers, i can hold it for a second and then still be in caps-mod. 
         {:des "rshift + caps = home layer"
@@ -46,15 +47,28 @@
                 :rules [[:caps_lock ["caps-mod" 1] nil {:alone [:escape ["tap-layer" 0] ["numpad" 0]] :afterup ["caps-mod" 0]}]]}
         {:des "rshift = home layer if alone" 
                 :rules [[:##right_shift :right_shift nil {:alone ["tap-layer" 0 ]}]]}
-       
-       {:des "q = q if tapped alone, acts as modifier when held"
-                :rules [[:q ["q-mod" 1] nil {:alone [:q] :afterup ["q-mod" 0]}]]}
 
         ;; command keys on left side
         {:des "m-cmd mapping"
                 :rules [:m-cmd
-                        [:f :!Cf] [:w :!Cw] [:r :!Cr] [:s :!Cs] [:t :!Ct] [:tab :!Ctab]
-                        [:grave_accent_and_tilde :!Cgrave_accent_and_tilde] [:d :!Cd] [:a :!Ca] [:z :!Cz] [:x :!Cx] [:c :!Cc] [:v :!Cv]]}
+                        [:f :!Cf] [:w :!Cw] [:r :!Cr] [:s :!Cs] [:t :!Ct] [:tab :!Ctab] 
+                        [:grave_accent_and_tilde :!Cgrave_accent_and_tilde] [:d :!Cd] [:a :!Ca ["cmdq" 0]] [:z :!Cz] [:x :!Cx] [:c :!Cc] [:v :!Cv]
+
+                        ;; if cmdq == 1, press a to quit and cleanup notification and variable 
+                        [:a [:!Cq ["cmdq" 0] [:noti :cmdq]] ["cmdq" 1]]
+
+                        ;; on initially pressing mcmd-q, show notification and set variable
+                        [:q [[:noti :cmdq "Press \"a\" to quit."] ["cmdq" 1]] 
+                            nil {
+                                :delayed {
+                                        ;; cleanup noti and variable if it :delay param passes
+                                        :invoked [["cmdq" 0][:noti :cmdq]]
+                                        ;; if another key hit before :delay, do the same cleanup
+                                        :cancelled [["cmdq" 0][:noti :cmdq]]
+                                }
+                                :params {:delay 1000}
+                        }]
+        ]}
 
         ;; command keys on right side
         {:des "c-cmd mapping"
@@ -73,7 +87,7 @@
                         [:slash :!Cslash]]}
         {:des "comma-ctrl mapping"
                 :rules [:comma-ctrl
-                        [:a :!Wa] [:e :!We] [:r :!Wr] [:n :!Wn]
+                        [:a :!Wa] [:e :!We] [:r :!Wr] [:n :!Wn] [:d :!Wd]
                         [:m :!Wm] [:spacebar [:comma :spacebar]] [:s :!Cs]]}
 
         ;; when holding down caps
@@ -103,13 +117,20 @@
 
         {:des "q-mod mapping"
                 :rules [:q-mod
-                 [:y :!S9] [:i :!S0] [:j :open_bracket ] [:k :close_bracket][:m :!Sopen_bracket] [:comma :!Sclose_bracket]
-                 [:o :!Shyphen] [:p [:spacebar :equal_sign :spacebar]] [:l :hyphen] [:semicolon :!Sequal_sign] [:period :backslash]
+                 [:j :!S9] [:k :!S0] [:m :open_bracket ] [:comma :close_bracket][:i :!Sopen_bracket] [:o :!Sclose_bracket]
+                 [:semicolon :!Squote]
                  [:e :play_or_pause]
                  [:r :rewind]
                  [:t :fastforward]
                  [:n ["numpad" 1]]
+                 [:u [:q :u]]
                  ]}
+
+        {:des "z-mod mapping"
+        :rules [:z-mod 
+                [:j :!Shyphen] [:##k :hyphen] [:##m :!Sequal_sign] [:##comma :equal_sign]
+                [:semicolon :quote]
+                [:##period :backslash] ]}
 
         {:des "numpad"
                 :rules [:numpad
@@ -125,7 +146,8 @@
         {:des "launcher mode"
                 :rules [:launcher
                 [:t [:open-app "iterm"]]
-                [:c [:open-app "google chrome"]]
+                [:b [:open-app "google chrome"]]
+                [:c [:open-app "visual studio code"]]
                 [:s [:open "users/dannylittle/Library/Mobile Documents/Bowdoin Classes"]]
                  ]
                  :simlayer-threshold 500}
@@ -133,12 +155,45 @@
         {:des "left shift sets tap layer to 1 when alone"
         :rules [[:##left_shift :left_shift nil {:alone [["tap-layer" 1]]}]]}    
         
-        ;; this messes stuff up unless i put it at the bottom
+        ;; this messes stuff up unless put at the bottom
+
+        ;; slash acts as shift when held with another key
+        {:des "slash = shift if held with another key"
+                :rules [[:##slash :right_shift nil {:alone :slash}]]}
+        {:des "shift + slash = qmark more reliably (simultaneous)" 
+                :rules [[[:left_shift :slash] :!Rslash] [[:right_shift :slash] :!Rslash]]}
+        {:des "slash + space only equals slash + space" :rules [[:!Rspacebar [:slash :spacebar]]]}
+ 
         {:des "switch colon and semicolon"
                 :rules [[:semicolon :!Ssemicolon] [:!Ssemicolon :semicolon]]}
-   ]} 
 
-;; todo:
-;; numpad
-;; media keys
-;;better get out of tap-layer
+        
+        {:des "comma is ! if held"
+                :rules [[:comma :comma nil {
+                                :held [:delete_or_backspace :!S1]
+                                :params {:held 250}}]]}
+       
+        {:des "period is @ if held"
+                :rules [[:period :period nil {
+                                :held [:delete_or_backspace :!S2]
+                                :params {:held 250}}]]}
+
+
+        ;; {:des "test for double-tap mode"
+        ;; :rules  [
+        ;; ;; set double esc mode if already pressed once
+        ;; [:comma ["double-comma-mode" 1] ["comma-pressed-once" 1]]
+        ;; ;; if not already pressed once, set already pressed and unset doube comma mode
+        ;; [:comma [["comma-pressed-once" 1]] ["double-comma-mode" 0] 
+        ;;         ;; if we press comma and then nothing after
+        ;;         {:delayed {:invoked [:comma ["comma-pressed-once" 0]] 
+        ;;                 ;; if we press comma and then another key shortly after
+        ;;                 :canceled [:comma ["comma-pressed-once" 0]]}
+        ;;         :params {:delay 250}}]
+        ;;                 ;; if we are in double comma mode, do these
+        ;;                 :double-comma-mode
+        ;;                 [:comma ["double-comma-mode" 0]]
+        ;;                 [:a [:delete_or_backspace :!S4 ["double-comma-mode" 0]]]]}
+
+   ]
+   :simlayer-threshold 250} 
