@@ -176,7 +176,7 @@
         {:des "switch colon and semicolon"
                 :rules [[:semicolon :!Ssemicolon] [:!Ssemicolon :semicolon]]}
 
-        
+
         {:des "comma is ! if held"
                 :rules [[:comma :comma nil {
                                 :held [:delete_or_backspace :!S1]
@@ -206,3 +206,6 @@
 
    ]
    :simlayer-threshold 250} 
+
+;; todo:
+;; add i-o-p keys to q-mod 
