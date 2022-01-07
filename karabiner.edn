@@ -20,10 +20,10 @@
         :c-cmd {:key :c}
         :m-cmd {:key :m}
         :x-ctrl {:key :x}
+        :comma-ctrl {:key :comma}
  }
 
  :layers {
-        :comma-ctrl {:key :comma}
         :z-mod {:key :z }
         :q-mod {:key :q}
         :launcher {:key :open_bracket}
@@ -103,7 +103,7 @@
                         [:slash :!Cslash]]}
         {:des "comma-ctrl mapping"
                 :rules [:comma-ctrl
-                        [:a :!Wa] [:e :!We] [:r :!Wr] [:n :!Wn] [:d :!Wd] [:tab :a]
+                        [:a :!Wa] [:e :!We] [:r :!Wr] [:n :!Wn] [:d :!Wd] [:c :!Wc]
                         [:m :!Wm] [:spacebar [:comma :spacebar]] [:s :!Cs]]}
 
         ;; when holding down caps
