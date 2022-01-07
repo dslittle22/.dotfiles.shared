@@ -19,11 +19,11 @@
         :backspace-mod {:key :delete_or_backspace}
         :c-cmd {:key :c}
         :m-cmd {:key :m}
-        :comma-ctrl {:key :comma}
         :x-ctrl {:key :x}
  }
 
  :layers {
+        :comma-ctrl {:key :comma}
         :z-mod {:key :z }
         :q-mod {:key :q}
         :launcher {:key :open_bracket}
@@ -48,6 +48,12 @@
                 :rules [[:!Rdelete_or_backspace :!Odelete_or_backspace]]}
         {:des "insert -> copy screenshot"
                 :rules [[:insert :!STC4]]}
+
+
+        {:des "left control alone sets tap layer to 1" :rules [[:left_control :left_control ["tap-layer" 0] {:alone [["tap-layer" 1]]}]]}    
+        {:des "left control alone sets tap layer to 1" :rules [[:left_control :left_control ["tap-layer" 1] {:alone [["tap-layer" 0]]}]]}    
+    
+        ;; {:des "tab alone sets tap layer to 1" :rules [[:##tab :tab nil {:alone [["tap-layer" 1]]}]]}    
        
         ;; when caps is held, it sets caps-mod to 1. this means that unlike the other
         ;; simlayers, i can hold it for a second and then still be in caps-mod. 
@@ -97,7 +103,7 @@
                         [:slash :!Cslash]]}
         {:des "comma-ctrl mapping"
                 :rules [:comma-ctrl
-                        [:a :!Wa] [:e :!We] [:r :!Wr] [:n :!Wn] [:d :!Wd]
+                        [:a :!Wa] [:e :!We] [:r :!Wr] [:n :!Wn] [:d :!Wd] [:tab :a]
                         [:m :!Wm] [:spacebar [:comma :spacebar]] [:s :!Cs]]}
 
         ;; when holding down caps
@@ -131,13 +137,13 @@
                 [:j :!Shyphen] [:##k :hyphen] [:##m :!Sequal_sign] [:##comma :equal_sign]
                 [:semicolon :quote]
                 [:##period :backslash] 
+                 [:n ["numpad" 1]]
                                  
-                 [:w :play_or_pause]
                  [:e :display_brightness_decrement]
                  [:r :display_brightness_increment]
+                 [:s :play_or_pause]
                  [:d :rewind]
                  [:f :fastforward]
-                 [:n ["numpad" 1]]
                  [:u [:q :u]]
                  ]}
 
@@ -150,6 +156,7 @@
                 [:f :!S5]
                 [:x :!S6]
                 [:c :!S7]
+                [:v :!S8]
                 ]}
 
         {:des "numpad"
@@ -172,8 +179,6 @@
                  ]
                  :simlayer-threshold 500}
                  
-        {:des "left shift sets tap layer to 1 when alone"
-        :rules [[:##left_shift :left_shift nil {:alone [["tap-layer" 1]]}]]}    
         
         ;; this messes stuff up unless put at the bottom
 
@@ -218,5 +223,19 @@
    ]
    :simlayer-threshold 250} 
 
+    ;; !  | means mandatory
+    ;; #  | means optional
+    ;; C  | left_command
+    ;; T  | left_control
+    ;; O  | left_option
+    ;; S  | left_shift
+    ;; F  | fn
+    ;; Q  | right_command
+    ;; W  | right_control
+    ;; E  | right_option
+    ;; R  | right_shift
+    ;; P  | caps_lock
+    ;; !! | mandatory command + control + optional + shift (hyper)
+    ;; ## | optional any
+
 ;; todo:
-;; add i-o-p keys to q-mod 
