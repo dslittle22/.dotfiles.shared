@@ -39,6 +39,13 @@
 
  :main [
         ;; misc modifications 
+
+        {:des "on mistel keyboard, command = alt and alt = command"
+                :rules [:mistel
+                        [:##left_command :##left_option]
+                        [:##left_option :##left_command]
+                        [:##right_option :##right_command]
+                ]}
         {:des "left shift + space = command + space"
                 :rules [[:!Sspacebar :!Cspacebar]]}
         { :des "rshift + backsp = opt + backsp" 
@@ -100,7 +107,9 @@
                         [:u :!Wu] [:o :!Wo] [:p :!Wp] [:h :!Wh] [:j :!Wj] [:k :!Wk]
                         [:l :!Wl] [:n :!Wn] [:m :!Wm]
                         [:semicolon :!Squote]
-                        [:slash :!Cslash]]}
+                        [:slash :!Cslash]
+                        [:period :!Cperiod]
+                ]}
         {:des "comma-ctrl mapping"
                 :rules [:comma-ctrl
                         [:a :!Wa] [:e :!We] [:r :!Wr] [:n :!Wn] [:d :!Wd] [:c :!Wc]
@@ -154,7 +163,6 @@
         {:des "z-mod mapping"
         :rules [:z-mod 
                 [:e [:z :e]]
-                [:i [:z :i]]
                 [:j :!S9] [:k :!S0] [:m :open_bracket ] [:comma :close_bracket][:u :!Sopen_bracket] [:i :!Sclose_bracket] 
                 [:semicolon :!Squote]
                 [:s :!S3]
