@@ -209,14 +209,14 @@
 
 
         {:des "comma is ! if held"
-                :rules [[:comma :comma nil {
+                :rules [[:period :period nil {
                                 :held [ {:key :delete_or_backspace :repeat false}{:key :!S1 :repeat false} ]
-                                :params {:held 200}}]]}
+                                :params {:held 100}}]]}
        
         {:des "period is @ if held"
-                :rules [[:period :period nil {
+                :rules [[:comma :comma nil {
                                 :held [ {:key :delete_or_backspace :repeat false}{:key :!S2 :repeat false} ]
-                                :params {:held 200}}]]}
+                                :params {:held 50}}]]}
 
 
         ;; {:des "test for double-tap mode"
