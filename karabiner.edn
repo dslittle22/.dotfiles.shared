@@ -25,7 +25,7 @@
  :layers {
         :z-mod {:key :z }
         :q-mod {:key :q}
-        :launcher {:key :open_bracket}
+        :launcher {:key :backslash}
  }
 
  :devices {
@@ -45,6 +45,7 @@
                         [:##left_command :##left_option]
                         [:##left_option :##left_command]
                         [:##right_option :##right_command]
+                        [:##right_command :##right_option]
                 ]}
         {:des "left shift + space = command + space"
                 :rules [[:!Sspacebar :!Cspacebar]]}
@@ -120,8 +121,9 @@
         {:des "caps-mod mapping"
                 :rules [:caps-mod
                  ;; hjkl arrows
-                [:##s :left_shift]
                 [:##a :left_option]
+                [:##s :left_command]
+                [:##d :left_shift]
                 [:##k [{:key :up_arrow :repeat true}]] [:##l [{:key :right_arrow :repeat true}]]
                 [:##j [{:key :down_arrow :repeat true}]] [:##h [{:key :left_arrow :repeat true}]]
                 ;; switch tabs in most apps
@@ -136,13 +138,18 @@
         {:des "tap-layer mapping"
                 :rules [:tap-layer
                 ;; hjkl arrows
-                 [:##k [{:key :up_arrow :repeat true}]] [:##l [{:key :right_arrow :repeat true}]]
-                 [:##j [{:key :down_arrow :repeat true}]] [:##h [{:key :left_arrow :repeat true}]]
-                [:##s :left_shift]
+                [:##k [{:key :up_arrow :repeat true}]] [:##l [{:key :right_arrow :repeat true}]]
+                [:##j [{:key :down_arrow :repeat true}]] [:##h [{:key :left_arrow :repeat true}]]
                 [:##a :left_option]
+                [:##s :left_command]
+                [:##d :left_shift]
                 ;; switch tabs in most apps
                 [:comma :!COleft_arrow]
                 [:period :!COright_arrow]
+                [:semicolon :left_arrow]
+                [:quote :down_arrow]
+                [:open_bracket :up_arrow]
+                [:return_or_enter :right_arrow]
                  ]}
 
         {:des "q-mod mapping"
@@ -191,7 +198,6 @@
                 [:b [:open-app "google chrome"]]
                 [:c [:open-app "visual studio code"]]
                 [:s [:open "users/dannylittle/Library/Mobile Documents/Bowdoin Classes"]]
-                [:close_bracket [:open_bracket :close_bracket]]
                  ]
                  :simlayer-threshold 500}
                  
