@@ -9,10 +9,10 @@
 :templates {
     :open "open \"%s\""
     :open-app "open -a \"%s\""
-} 
- ;; simlayers are like layers, but only work in a certain 'time frame'. 
+}
+ ;; simlayers are like layers, but only work in a certain 'time frame'.
  ;; you should probably only use them for letter keys that you type regularly.
- ;; for other keys, e.g. espace, you can probably just use a normal layer. 
+ ;; for other keys, e.g. espace, you can probably just use a normal layer.
  :simlayers   {
         :caps-mod {:key :caps_lock}
         :backspace-mod {:key :delete_or_backspace}
@@ -38,7 +38,7 @@
  }
 
  :main [
-        ;; misc modifications 
+        ;; misc modifications
 
         {:des "on mistel keyboard, command = alt and alt = command"
                 :rules [:mistel
@@ -49,42 +49,42 @@
                 ]}
         {:des "left shift + space = command + space"
                 :rules [[:!Sspacebar :!Cspacebar]]}
-        { :des "rshift + backsp = opt + backsp" 
+        { :des "rshift + backsp = opt + backsp"
                 :rules [[:!Rdelete_or_backspace :!Odelete_or_backspace]]}
         {:des "insert -> copy screenshot"
                 :rules [[:print_screen :!STC4]]}
-        {:des "alt + tilde = command + alt + escape"
-                :rules [[:!Qgrave_accent_and_tilde :!COescape]]}
+        {:des "command + caps = command + command + escape"
+                :rules [[:!Qcaps_lock :!COescape]]}
 
 
-        {:des "left control alone sets tap layer to 1" :rules [[:left_control :left_control :!tap-layer {:alone [["tap-layer" 1]]}]]}    
-        {:des "left control alone sets tap layer to 1" :rules [[:left_control :left_control :tap-layer {:alone [["tap-layer" 0]]}]]}    
-       
+        {:des "left control alone sets tap layer to 1" :rules [[:left_control :left_control :!tap-layer {:alone [["tap-layer" 1]]}]]}
+        {:des "left control alone sets tap layer to 1" :rules [[:left_control :left_control :tap-layer {:alone [["tap-layer" 0]]}]]}
+
         ;; when caps is held, it sets caps-mod to 1. this means that unlike the other
-        ;; simlayers, i can hold it for a second and then still be in caps-mod. 
+        ;; simlayers, i can hold it for a second and then still be in caps-mod.
         {:des "rshift + caps = home layer"
                 :rules [[:!Rcaps_lock [["tap-layer" 0 ]]]] }
         {:des "caps lock = escape if tapped alone, acts as modifier when held"
                 :rules [[:caps_lock ["caps-mod" 1] nil {:alone [:escape ["tap-layer" 0] ["numpad" 0]] :afterup ["caps-mod" 0]}]]}
-        
-        {:des "shift + slash = qmark more reliably (simultaneous)" 
+
+        {:des "shift + slash = qmark more reliably (simultaneous)"
         :rules [[[:left_shift :slash] :!Sslash]
                 [[:right_shift :slash] :!Rslash]]}
 
-        {:des "rshift = home layer if alone" 
+        {:des "rshift = home layer if alone"
                 :rules [[:right_shift :right_shift nil {:alone [["tap-layer" 0 ] ["numpad" 0]]}]]}
 
         ;; command keys on left side
         {:des "m-cmd mapping"
                 :rules [:m-cmd
-                        [:f :!Cf] [:w :!Cw] [:r :!Cr] [:s :!Cs] [:t :!Ct] [:tab :!Ctab] 
+                        [:f :!Cf] [:w :!Cw] [:r :!Cr] [:s :!Cs] [:t :!Ct] [:tab :!Ctab]
                         [:grave_accent_and_tilde :!Cgrave_accent_and_tilde] [:d :!Cd] [:a :!Ca ["cmdq" 0]] [:z :!Cz] [:x :!Cx] [:c :!Cc] [:v :!Cv]
 
-                        ;; if cmdq == 1, press a to quit and cleanup notification and variable 
+                        ;; if cmdq == 1, press a to quit and cleanup notification and variable
                         [:a [:!Cq ["cmdq" 0] [:noti :cmdq]] ["cmdq" 1]]
 
                         ;; on initially pressing mcmd-q, show notification and set variable
-                        [:q [[:noti :cmdq "Press \"a\" to quit."] ["cmdq" 1]] 
+                        [:q [[:noti :cmdq "Press \"a\" to quit."] ["cmdq" 1]]
                             nil {
                                 :delayed {
                                         ;; cleanup noti and variable if it :delay param passes
@@ -99,8 +99,7 @@
         ;; command keys on right side
         {:des "c-cmd mapping"
                 :rules [:c-cmd
-                        [:k :!Cdown_arrow tap-layer]
-                        [:k :!Ck !tap-layer]
+                        [:k [:c :k] !tap-layer]
                         [:l :!Cl] [:n :!Cn] [:p :!Cp]
                         [:comma :!Ccomma] [:period :!Cperiod] [:slash :!Cslash]
                         [:semicolon :quote]
@@ -170,16 +169,16 @@
                 :rules [:q-mod
                 [:j :!Shyphen] [:##k :hyphen] [:##m :!Sequal_sign] [:##comma :equal_sign]
                 [:semicolon :quote]
-                [:##period :backslash] 
+                [:##period :backslash]
                 [:n ["numpad" 1]]
                 [:u [:q :u]]
                  ]}
 
         {:des "z-mod mapping"
-        :rules [:z-mod 
+        :rules [:z-mod
                 [:e [:z :e]]
                 [:o [:z :o]]
-                [:j :!S9] [:k :!S0] [:m :open_bracket ] [:comma :close_bracket][:u :!Sopen_bracket] [:i :!Sclose_bracket] 
+                [:j :!S9] [:k :!S0] [:m :open_bracket ] [:comma :close_bracket][:u :!Sopen_bracket] [:i :!Sclose_bracket]
                 [:semicolon :!Squote]
                 [:s :!S3]
                 [:d :!S4]
@@ -191,14 +190,14 @@
 
         {:des "numpad"
                 :rules [:numpad
-                 [:u :4] [:i :5] [:o :6] 
-                 [:j :1] [:k :2] [:l :3] 
+                 [:u :4] [:i :5] [:o :6]
+                 [:j :1] [:k :2] [:l :3]
                  [:m :0]]}
 
-        ;; backspace mod should be things you only want with a split keyboard. 
-        ;; e.g. media / funciton keys        
+        ;; backspace mod should be things you only want with a split keyboard.
+        ;; e.g. media / funciton keys
         {:des "backspace mod"
-                :rules []}       
+                :rules []}
 
         {:des "launcher mode"
                 :rules [:launcher
@@ -208,16 +207,16 @@
                 [:s [:open "/Users/dannylittle/Library/Mobile Documents/com~apple~CloudDocs/Bowdoin Classes"]]
                  ]
                  :simlayer-threshold 500}
-                 
-        
+
+
         ;; this messes stuff up unless put at the bottom
 
         ;; slash acts as shift when held with another key
         {:des "slash = shift if held with another key"
                 :rules [[:##slash :right_shift nil {:alone :slash}]]}
         {:des "slash + space only equals slash + space" :rules [[:!Rspacebar [:slash :spacebar]]]}
-        
- 
+
+
         {:des "switch colon and semicolon"
                 :rules [[:semicolon :!Ssemicolon] [:!Ssemicolon :semicolon]]}
 
@@ -226,7 +225,7 @@
                 :rules [[:period :period nil {
                                 :held [ {:key :delete_or_backspace :repeat false}{:key :!S1 :repeat false} ]
                                 :params {:held 100}}]]}
-       
+
         {:des "period is @ if held"
                 :rules [[:comma :comma nil {
                                 :held [ {:key :delete_or_backspace :repeat false}{:key :!S2 :repeat false} ]
@@ -241,7 +240,7 @@
         ;; [:comma [["comma-pressed-once" 1]] ["double-comma-mode" 0] {
         ;;         :delayed {
         ;;                 ;; if we press comma and then nothing after
-        ;;                 :invoked [:comma ["comma-pressed-once" 0]] 
+        ;;                 :invoked [:comma ["comma-pressed-once" 0]]
         ;;                 ;; if we press comma and then another key shortly after
         ;;                 :canceled [:comma ["comma-pressed-once" 0]]}
         ;;         :params {:delay 250}}]
@@ -251,7 +250,7 @@
         ;;         [:a [:delete_or_backspace :!S4 ["double-comma-mode" 0]]]]}
 
    ]
-   :simlayer-threshold 250} 
+   :simlayer-threshold 250}
 
     ;; !  | means mandatory
     ;; #  | means optional
@@ -281,5 +280,5 @@
 ;;         :held [:delete_or_backspace :!S1]
 ;;         :params {:held 200}}]]
 
-                       
+
 ;; todo:
