@@ -56,6 +56,34 @@
         {:des "command + caps = command + command + escape"
                 :rules [[:!Qcaps_lock :!COescape]]}
 
+        {:des ""
+                :rules [
+                        [:!Rf1 :f1]
+                        [:!Rf2 :f2]
+                        [:!Rf3 :f3]
+                        [:!Rf4 :f4]
+                        [:!Rf5 :f5]
+                        [:!Rf6 :f6]
+                        [:!Rf7 :f7]
+                        [:!Rf8 :f8]
+                        [:!Rf9 :f9]
+                        [:!Rf10 :f10]
+                        [:!Rf11 :f11]
+                        [:!Rf12 :f12]
+                        
+                        [:!Sf1 :f1]
+                        [:!Sf2 :f2]
+                        [:!Sf3 :f3]
+                        [:!Sf4 :f4]
+                        [:!Sf5 :f5]
+                        [:!Sf6 :f6]
+                        [:!Sf7 :f7]
+                        [:!Sf8 :f8]
+                        [:!Sf9 :f9]
+                        [:!Sf10 :f10]
+                        [:!Sf11 :f11]
+                        [:!Sf12 :f12]
+                ]}
 
         {:des "left control alone sets tap layer to 1" :rules [[:left_control :left_control :!tap-layer {:alone [["tap-layer" 1]]}]]}
         {:des "left control alone sets tap layer to 1" :rules [[:left_control :left_control :tap-layer {:alone [["tap-layer" 0]]}]]}
