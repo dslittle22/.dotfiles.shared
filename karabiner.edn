@@ -137,6 +137,7 @@
                         [:u :!Wu] [:o :!Wo] [:p :!Wp] [:h :!Wh] [:j :!Wj] [:k :!Wk]
                         [:l :!Wl] [:n :!Wn] [:m :!Wm]
                         [:semicolon :!Squote]
+                        [:comma :!Wcomma]
                         [:backslash :!Wbackslash]
                         [:period :!Wperiod]
                 ]}
