@@ -1,6 +1,6 @@
  {:profiles
   {:Default {:default true
-            :sim     50
+            :sim     80
             :delay   500
             :alone   500
             :held    500
@@ -36,7 +36,7 @@
             {:vendor_id 1241}
     ]
  }
- 
+
  :applications {
         :vscode "com.microsoft.VSCode"
  }
@@ -50,7 +50,7 @@
                         [:##left_option :##left_command]
                         [:##right_option :##right_command]
                         [:##right_command :##right_option]
-                        
+
                         [:!OQspacebar :vk_none]
                 ]}
         {:des "left shift + space = command + space"
@@ -84,7 +84,7 @@
                         [:!Rf10 :f10]
                         [:!Rf11 :f11]
                         [:!Rf12 :f12]
-                        
+
                         [:!Sf1 :f1]
                         [:!Sf2 :f2]
                         [:!Sf3 :f3]
@@ -128,12 +128,14 @@
         ;; command keys on right side
         {:des "c-cmd mapping"
                 :rules [:c-cmd
+                        [:x :!Oleft_control]
                         [:k [:c :k] !tap-layer]
                         [:l :!Cl] [:n :!Cn] [:p :!Cp]
                         [:comma :!Ccomma] [:period :!Cperiod] [:slash :!Cslash]
                         ]}
         {:des "x-ctrl mapping"
                 :rules [:x-ctrl
+                        [:c :!Tleft_option]
                         [:u :!Wu] [:o :!Wo] [:p :!Wp] [:h :!Wh] [:j :!Wj] [:k :!Wk]
                         [:l :!Wl] [:n :!Wn] [:m :!Wm]
                         [:semicolon :!Squote]
@@ -211,7 +213,7 @@
                 [:##period :backslash]
                 [:n ["numpad" 1]]
                 [:u [:q :u]]
-                
+
                 [:w :play_or_pause]
                 [:e :fastforward]
                 [:r :display_brightness_decrement]
@@ -225,6 +227,7 @@
         :rules [:z-mod
                 [:e [:z :e]]
                 [:o [:z :o]]
+                [:quote [:!Squote :!Squote :left_arrow]]
                 [:j :!S9] [:k :!S0] [:m :open_bracket ] [:comma :close_bracket][:u :!Sopen_bracket] [:i :!Sclose_bracket]
                 [:semicolon :!Squote]
                 [:s :!S3]
