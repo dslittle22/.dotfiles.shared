@@ -2,6 +2,11 @@ It's my dotfiles!
 
 to create symlink:
 `ln -s ~/.dotfiles/<filename> ~/<filename>`
+For example, I have these symlinks:
+`ln -s ~/.dotfiles/.vimrc ~/.vimrc`
+`ln -s ~/.dotfiles/.gitconfig ~/.gitconfig`
+`ln -s ~/.dotfiles/karabiner.edn ~/.config/karabiner.edn`
+`ln -s ~/.dotfiles/userChrome.css ~/Library/Application Support/Firefox/Profiles/afjndxke.default-release/chrome/userChrome.css`
 
 Vim plugins installation:
 to install a plugin, do:
