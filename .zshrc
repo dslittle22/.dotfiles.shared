@@ -13,7 +13,7 @@ zstyle ':vcs_info:*' enable git # only load stuff for git vcs
 zstyle ':vcs_info:*' check-for-changes true # always check for changes
 zstyle ':vcs_info:*' unstagedstr '*'
 zstyle ':vcs_info:*' stagedstr '+'
- 
+
 # display when no action (e.g. rebase)
 zstyle ':vcs_info:git:*' formats 'on %F{40}%b %F{220}%u%c%m%f'
 # display on action
