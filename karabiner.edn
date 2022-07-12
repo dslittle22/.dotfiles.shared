@@ -18,6 +18,7 @@
         :backspace-mod {:key :delete_or_backspace}
         :c-cmd {:key :c}
         :m-cmd {:key :m}
+        :j-shift {:key :j}
         :x-ctrl {:key :x}
         :comma-ctrl {:key :comma}
  }
@@ -124,6 +125,33 @@
                         [:grave_accent_and_tilde :!Cgrave_accent_and_tilde] [:d :!Cd] [:a :!Ca]
                         [:z :!Cz] [:x :!Cx] [:c :!Cc] [:v :!Cv]
                         [:1 :!Cq]
+        ]}
+
+
+        ;; command keys on left side
+        {:des "j-shift mapping"
+                :rules [:j-shift
+                        [:q :!Rq]
+                        [:w :!Rw]
+                        [:e :!Re]
+                        [:r :!Rr]
+                        [:t :!Rt]
+                        [:y :!Ry]
+                        [:a :!Ra]
+                        [:s :!Rs]
+                        [:d :!Rd]
+                        [:f :!Rf]
+                        [:g :!Rg]
+                        [:z :!Rz]
+                        [:x :!Rx]
+                        [:c :!Rc]
+                        [:v :!Rv]
+                        [:b :!Rb]
+                        [:1 :!C1]
+                        [:2 :!C2]
+                        [:3 :!C3]
+                        [:4 :!C4]
+                        [:5 :!C5]
         ]}
 
         ;; command keys on right side

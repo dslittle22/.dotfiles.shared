@@ -30,19 +30,14 @@ set showmatch
 filetype indent on
 vnoremap . :norm.<CR>
 
+colorscheme sonokai
 packloadall
 
 " search files recursively, using tab for completion
 set path+=**
 set wildmenu
 
-" tweaks for netrw browser
-let g:netrw_banner=0 " disbale banner
-let g:netrw_browse_split=4
-let g:netrw_altv=1 " open split to the right
-let g:netrw_liststyle=3 " tree view
-let g:netrw_list_hide=netrw_gitignore#Hide()
-let g:netrw_list_hide.=',/(^/|/s/s/)/zs/./S/+' " wonder what this does
-
 autocmd FileType c setlocal commentstring=//\ %s
 autocmd FileType python setlocal commentstring=#\ %s
+autocmd FileType zsh setlocal commentstring=#\ %s
+autocmd FileType vim setlocal commentstring=\"\ %s
