@@ -1,21 +1,9 @@
 It's my dotfiles!
 
-to create symlink:
-`ln -s ~/.dotfiles/<filename> ~/<filename>`
-For example, I have these symlinks:
-`ln -s ~/.dotfiles/.vimrc ~/.vimrc`
-`ln -s ~/.dotfiles/.gitconfig ~/.gitconfig`
-`ln -s ~/.dotfiles/karabiner.edn ~/.config/karabiner.edn`
-`ln -s ~/.dotfiles/userChrome.css ~/Library/Application Support/Firefox/Profiles/afjndxke.default-release/chrome/userChrome.css`
+## Instructions:
 
-karabiner.json goes directly in ~/.config/karabiner . No symlink. This is so that function keys work right.
-
-Vim plugins installation:
-to install a plugin, do:
-`mkdir -p ~/.vim/pack/plugins/start`
-`cd ''`
-`git clone <github plugin url>`
-
-more info: https://medium.com/@paulodiovani/installing-vim-8-plugins-with-the-native-pack-system-39b71c351fea
-
-Currently, you just have tpope/commentary and tpope/surround installed.
+1. On old machine, run `make_brewfiles.sh`, with -b, to make a new brewfile
+2. Git push on old machine, git pull on new
+3. On new machine, run `make_brewfiles.sh` to make Brewfile-work and Brewfile-personal
+4. Run `new_machine_install.sh -m work` or `-m personal`
+5. Follow the instructions
