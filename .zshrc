@@ -15,9 +15,9 @@ zstyle ':vcs_info:*' unstagedstr '*'
 zstyle ':vcs_info:*' stagedstr '+'
 
 # display when no action (e.g. rebase)
-zstyle ':vcs_info:git:*' formats 'on %F{40}%b %F{220}%u%c%m%f'
+zstyle ':vcs_info:git:*' formats "%F{40}%b %F{220}%u%c%m%f"
 # display on action
-zstyle ':vcs_info:git:*' actionformats 'on %F{40}%b|%F{220}%u%c%F{1}(%a)%f'
+zstyle ':vcs_info:git:*' actionformats '%F{40}%b|%F{220}%u%c%F{1}(%a)%f'
 # run hook below to check for untracked files
 zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 
@@ -28,24 +28,33 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
     hook_com[misc]='?'
   fi
 }
+
 # set prompt
 
 # renders a question mark character for a certain error code
 err="%(?..%F{red}? %?)%f"
 
-# the part in parenths, %(...), says: if the cwd is >= 4
-# dirs, show dir1/.../last2/dirs.
-# the %32<..< says, if the whole string is longer than 32,
-# truncate it to ..rest-of-string.
+# this will reevaluate whenever the terminal is resized to 
+# have the left and right prompts take up prompt_width_pct
+# percent of the total width.
+export prompt_width_pct=30
+function prompt_width_func() {
+  echo $(( ${COLUMNS:-80} * prompt_width_pct / 100 )) 
+}
+prompt_width='$(prompt_width_func)'
 
-quarter_width=$(($COLUMNS / 4))
-
-dir="%B%F{4}%${quarter_width}<..<%(4~|%-1~/…/%2~|%3~)%f"
+# the part in parenths, %(...), says: if the cwd is >= 4 # dirs,
+# show dir1/.../last2/dirs. # the %${p_w}<..< says, if the whole string
+# is longer than p_w, truncate it to ..rest-of-string.
+dir="%B%F{4}%${prompt_width}<..<%(4~|%-1~/…/%2~|%3~)%f"
 
 # shows arrow normally, pound sign if elevated privilages (sudo)
 suffix='%(!.#.→) '
-PROMPT='${err}${dir} ${suffix}'
-RPROMPT='%${quarter_width}>..>${vcs_info_msg_0_}'
+
+git_info='${vcs_info_msg_0_}'
+
+PROMPT="${err}${dir} ${suffix}"
+RPROMPT="%${prompt_width}<..<${git_info}"
 
 if [ -n "$VIRTUAL_ENV" ]; then
   RPROMPT="🐍:(`basename \"$VIRTUAL_ENV\"`)$RPROMPT "
@@ -61,8 +70,8 @@ mkcd () {
 alias python="/opt/homebrew/bin/python3"
 alias avenv="source venv/bin/activate"
 alias dvenv="deactivate"
-alias sz="source ~/.zshrc"
-alias vz="vim ~/.zshrc"
+alias sz="source ${ZDOTDIR}/.zshrc"
+alias vz="vim ${ZDOTDIR}/.zshrc"
 alias gs="git status"
 alias ga="git add ."
 alias gd="git diff"

@@ -35,8 +35,9 @@ echo "Cloning dotfiles repo..."
 git clone git@github.com:dslittle22/.dotfiles.git
 
 echo "Making symlinks..."
+ln -s ~/.dotfiles/.zshenv ~/.zshenv 
 ln -s ~/.dotfiles/.vimrc ~/.vimrc
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/.zshrc ~/.zsh/.zshrc
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/karabiner.edn ~/.config/karabiner.edn
 ln -s ~/.dotfiles/karabiner.json ~/.config/karabiner/karabiner.json
