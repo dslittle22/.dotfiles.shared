@@ -34,12 +34,12 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 # renders a question mark character for a certain error code
 err="%(?..%F{red}? %?)%f"
 
-# this will reevaluate whenever the terminal is resized to 
+# this will reevaluate whenever the terminal is resized to
 # have the left and right prompts take up prompt_width_pct
 # percent of the total width.
 export prompt_width_pct=30
 function prompt_width_func() {
-  echo $(( ${COLUMNS:-80} * prompt_width_pct / 100 )) 
+  echo $(( ${COLUMNS:-80} * prompt_width_pct / 100 ))
 }
 prompt_width='$(prompt_width_func)'
 
