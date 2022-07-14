@@ -1,7 +1,8 @@
 #!/bin/zsh
 
 # get ${ZDOTDIR} from ./.zshrc
-. ./.zshrc
+# . ./.zshrc
+$ZDOTDIR=~/.zsh
 
 print_usage() {
   printf "Usage: -m should be either personal or work."
@@ -57,7 +58,7 @@ fi
 echo "Checking for ~/.zshenv..."
 if [ ! -f ~/.zshenv ]; then
   echo "~/.zshenv does not exist, creating file and setting ZDOTDIR"
-  # echo 'ZDOTDIR=$HOME/.zsh' >> ~/.zshenv;
+  echo 'ZDOTDIR=$HOME/.zsh' >> ~/.zshenv;
 fi
 
 echo "Making symlinks..."

@@ -10,3 +10,5 @@ It's my dotfiles!
 4. On new machine, run `make_brewfiles.sh` to make Brewfile-work and Brewfile-personal
 5. Run `new_machine_install.sh -m work` or `-m personal` from .dotfiles directory
 6. Follow the instructions
+
+To override values in `~/.gitconfig` or `${ZDOTDIR}.zshrc`, use `~/.gitconfig.local` or `${ZDOTDIR}/.zshrc.local`.
