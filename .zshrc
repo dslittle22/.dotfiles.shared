@@ -23,7 +23,7 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 
 +vi-git-untracked() {
   if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
-     git status --porcelain | grep -m 1 '^??' &>/dev/null
+      git status --porcelain | grep -m 1 '^??' &>/dev/null
   then
     hook_com[misc]='?'
   fi
@@ -97,3 +97,7 @@ export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 # source brew plugins
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+if [ -f ${ZDOTDIR}/.zshrc.local ]; then
+  source "${ZDOTDIR}/.zshrc.local";
+fi

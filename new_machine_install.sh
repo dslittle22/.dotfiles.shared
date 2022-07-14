@@ -19,7 +19,16 @@ if [[ "$machine" != work && "$machine" != personal ]]; then
 fi
 
 echo "Installing homebrew..."
-/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
+
+which brew
+if [[ $? != 0 ]] ; then
+    # /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo "bad"
+else
+    brew update
+    echo "good"
+fi
+
 
 
 echo "Installing 1Password..."
@@ -38,26 +47,44 @@ echo ""
 read -p "Press enter to continue"
 
 echo "Cloning dotfiles repo..."
-git clone git@github.com:dslittle22/.dotfiles.git
+# git clone git@github.com:dslittle22/.dotfiles.git
+
+echo "Checking for .zshrc.local..."
+if [ ! -f ${ZDOTDIR}/.zshrc.local ]; then
+  # touch "${ZDOTDIR}/.zshrc.local";
+  echo "bad"
+fi
+
+echo "Checking for ~/.zshenv..."
+if [ ! -f ~/.zshenv ]; then
+  # echo 'ZDOTDIR=$HOME/.zsh' >> ~/.zshenv;
+  echo "bad"
+
+fi
 
 echo "Making symlinks..."
-ln -s ~/.dotfiles/.zshenv ~/.zshenv 
+ln -s ~/.dotfiles/.zshenv ~/.zshenv
 ln -s ~/.dotfiles/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/.zshrc ~/.zsh/.zshrc
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/karabiner.edn ~/.config/karabiner.edn
 ln -s ~/.dotfiles/karabiner.json ~/.config/karabiner/karabiner.json
 
-echo "Installing tpope/surround and tpope/commentary..."
-mkdir ~/.vim/pack/plugins/start;
-cd ~/.vim/pack/plugins/start;
-git clone https://tpope.io/vim/surround.git;
-git clone https://tpope.io/vim/commentary.git;
-git clone --depth 1 https://github.com/sainnhe/sonokai.git
 
-vim -u NONE -c "helptags surround/doc" -c q;
-vim -u NONE -c "helptags commentary/doc" -c q;
-vim -u NONE -c "helptags sonokai/doc" -c q;
+if [ ! -d ~/.vim/pack/plugins/starts/ ] then
+  echo "Installing vim plugins and themes..."
+  echo "bad"
+  mkdir ~/.vim/pack/plugins/start;
+  cd ~/.vim/pack/plugins/start;
+
+  git clone https://tpope.io/vim/surround.git;
+  git clone https://tpope.io/vim/commentary.git;
+  git clone --depth 1 https://github.com/sainnhe/sonokai.git
+
+  vim -u NONE -c "helptags surround/doc" -c q;
+  vim -u NONE -c "helptags commentary/doc" -c q;
+  vim -u NONE -c "helptags sonokai/doc" -c q;
+fi
 
 echo "Installing from brewfile..."
 
@@ -65,7 +92,7 @@ read -p "Installing ${machine} machine profile. Press enter to continue"
 
 if [ "$machine" == work ]; then
     brew bundle --file=./Brewfile-work
-  else 
+  else
     brew bundle --file=./Brewfile-private
 fi
 
@@ -81,4 +108,4 @@ echo "[ ] Install wavelink and import settings"
 echo "[ ] ITerm2: Preferences -> General -> Preferences -> Load preferences from a custom folder or URL: ~/.dotfiles. \
 Then, import color scheme (~/.dotfiles/material-ui-colors)"
 echo "[ ] Get tinkertool (http://www.bresink.com/osx/TinkerToolOverview.html), import settings"
-echo "[ ] Set MacOS shortcuts (f4 to DND)"
+echo "[ ] Set MacOS shortcuts (e.g. f4 to DND)"
