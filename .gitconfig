@@ -5,6 +5,7 @@
 	ui = auto
 [core]
 	editor = vim
+	pager = less -r --mouse
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
