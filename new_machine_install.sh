@@ -59,7 +59,15 @@ if [ ! -f ~/.zshenv ]; then
   echo "ZDOTDIR=${ZDOTDIR}" >> ~/.zshenv;
 fi
 
-echo "Making symlinks..."
+echo "Making symlinks from .dotfiles..."
+
+if [ ! -d ~/.config ]; then
+  mkdir ~/.config
+fi
+
+if [ ! -d ~/.config/karabiner ]; then
+  mkdir ~/.config/karabiner
+fi
 
 declare -a symlinks=("${ZDOTDIR}/.zshrc" ~/.vimrc ~/.gitconfig ~/.config/karabiner.edn ~/.config/karabiner/karabiner.json)
 
@@ -107,6 +115,12 @@ else
 fi
 
 pause "Go setup Karabiner permissions!"
+
+if [ ! -f ~/.config/karabiner/karabiner.json ]; then
+  cp ~/.dotfiles/karabiner.json ~/.config/karabiner/karabiner.json
+  rm ~/.dotfiles/karabiner.json
+fi
+ln -s ~/.config/karabiner/karabiner.json ~/.dotfiles/karabiner.json
 
 echo "Running goku..."
 goku
