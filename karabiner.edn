@@ -105,13 +105,8 @@
                         [:!Sf12 :f12]
                 ]}
 
-        ;; {:des "left ctrl + tilde sets tap layer to 1" :rules [[:!TOgrave_accent_and_tilde nil :!tap-layer {:alone [["tap-layer" 1]]}]]}
-        ;; {:des "left ctrl + tilde sets tap layer to 0" :rules [[:!TOgrave_accent_and_tilde nil :tap-layer {:alone [["tap-layer" 0]]}]]}
-
         ;; when caps is held, it sets caps-mod to 1. this means that unlike the other
         ;; simlayers, i can hold it for a second and then still be in caps-mod.
-        ;; {:des "rshift + caps = home layer"
-        ;;         :rules [[:!Rcaps_lock [["tap-layer" 0 ]]]] }
         {:des "caps lock = escape if tapped alone, acts as modifier when held"
                 :rules [
                         [:caps_lock ["nav-layer" 1] nil {:alone [:escape] :afterup ["nav-layer" 0]}]
@@ -120,45 +115,64 @@
         ;; command keys on left side
         {:des "l-shift mapping"
                 :rules [:l-shift
-                        [:q :!Rq]
-                        [:w :!Rw]
-                        [:e :!Re]
-                        [:r :!Rr]
-                        [:t :!Rt]
-                        [:y :!Ry]
-                        [:a :!Ra]
-                        [:s :!Rs]
-                        [:d :!Rd]
-                        [:f :!Rf]
-                        [:g :!Rg]
-                        [:z :!Rz]
-                        [:x :!Rx]
-                        [:c :!Rc]
-                        [:v :!Rv]
-                        [:b :!Rb]
-                        [:1 :!R1]
-                        [:2 :!R2]
-                        [:3 :!R3]
-                        [:4 :!R4]
-                        [:5 :!R5]
+                        [:q :!Rq !:moonlander]
+                        [:w :!Rw !:moonlander]
+                        [:e :!Re !:moonlander]
+                        [:r :!Rr !:moonlander]
+                        [:t :!Rt !:moonlander]
+                        [:y :!Ry !:moonlander]
+                        [:a :!Ra !:moonlander]
+                        [:s :!Rs !:moonlander]
+                        [:d :!Rd !:moonlander]
+                        [:f :!Rf !:moonlander]
+                        [:g :!Rg !:moonlander]
+                        [:z :!Rz !:moonlander]
+                        [:x :!Rx !:moonlander]
+                        [:c :!Rc !:moonlander]
+                        [:v :!Rv !:moonlander]
+                        [:b :!Rb !:moonlander]
+                        [:1 :!R1 !:moonlander]
+                        [:2 :!R2 !:moonlander]
+                        [:3 :!R3 !:moonlander]
+                        [:4 :!R4 !:moonlander]
+                        [:5 :!R5 !:moonlander]
+                        [:6 :!R6 !:moonlander]
+                        [:7 :!R7 !:moonlander]
+                        [:8 :!R8 !:moonlander]
+                        [:9 :!R9 !:moonlander]
+                        [:0 :!R0 !:moonlander]
         ]}
 
         ;; ;; command keys on left side
         {:des "m-cmd mapping"
                 :rules [:m-cmd
-                        [:f :!Cf] [:w :!Cw] [:r :!Cr] [:s :!Cs] [:t :!Ct] [:tab :!Ctab]
-                        [:grave_accent_and_tilde :!Cgrave_accent_and_tilde] [:d :!Cd] [:a :!Ca]
-                        [:z :!Cz] [:x :!Cx] [:c :!Cc] [:v :!Cv]
-                        [:1 :!Cq]
+                        [:f :!Cf !:moonlander]
+                        [:w :!Cw !:moonlander]
+                        [:r :!Cr !:moonlander]
+                        [:s :!Cs !:moonlander]
+                        [:t :!Ct !:moonlander]
+                        [:tab :!Ctab !:moonlander]
+                        [:grave_accent_and_tilde :!Cgrave_accent_and_tilde !:moonlander]
+                        [:d :!Cd ]
+                        [:a :!Ca !:moonlander]
+                        [:z :!Cz !:moonlander]
+                        [:x :!Cx !:moonlander]
+                        [:c :!Cc !:moonlander]
+                        [:v :!Cv !:moonlander]
+                        [:1 :!Cq !:moonlander]
         ]}
 
         ;; command keys on right side
         {:des "c-cmd mapping"
                 :rules [:c-cmd
-                        [:x :!Oleft_control]
-                        [:k [:c :k] !tap-layer]
-                        [:l :!Cl] [:n :!Cn] [:p :!Cp]
-                        [:comma :!Ccomma] [:period :!Cperiod] [:slash :!Cslash]
+                        [:x :!Oleft_control !:moonlander]
+                        [:k [:c :k] !:moonlander]
+                        [:l :!Cl !:moonlander]
+                        [:n :!Cn !:moonlander]
+                        [:p :!Cp !:moonlander]
+                        [:comma :!Ccomma !:moonlander]
+                        [:period :!Cperiod !:moonlander]
+                        [:slash :!Cslash !:moonlander]
                         ]}
 
         {:des "comma-alt mapping"
@@ -215,23 +229,22 @@
         {:des "q-mod mapping"
                 :rules [:q-mod
                 [:u [:q :u]]
-                [:w :display_brightness_decrement !moonlander]
-                [:e :display_brightness_increment !moonlander]
-                [:r :mission_control !moonlander]
-                [:s :rewind !moonlander]
-                [:d :play_or_pause !moonlander]
-                [:f :fastforward !moonlander]
-                [:y :!TOy !moonlander]
-                [:i :!TOi !moonlander]
-                [:j :!TOj !moonlander]
-                [:k :!TOk !moonlander]
-                [:n :volume_decrement !:moonlander]
-                [:m :volume_increment !:moonlander]
-                [:slash :mute !:moonlander]
+                [:2 :mute !:moonlander]
+                [:3 :volume_decrement !:moonlander]
+                [:4 :volume_increment !:moonlander]
+                [:w :display_brightness_decrement !:moonlander]
+                [:e :display_brightness_increment !:moonlander]
+                [:r :mission_control !:moonlander]
+                [:s :rewind !:moonlander]
+                [:d :play_or_pause !:moonlander]
+                [:f :fastforward !:moonlander]
+                [:j :quote !:moonlander]
+                [:k :!Squote !:moonlander]
+                [:i [:!Squote :!Squote :left_arrow] !:moonlander]
                 [:comma :!COleft_arrow !:moonlander]
                 [:period :!COright_arrow !:moonlander]
-                [:o :!Tleft_arrow !moonlander]
-                [:p :!Tright_arrow !moonlander]
+                [:o :!Tleft_arrow !:moonlander]
+                [:p :!Tright_arrow !:moonlander]
                 [:h [:spacebar :equal_sign :spacebar] !:moonlander]
                 [:l [:grave_accent_and_tilde :grave_accent_and_tilde :left_arrow] !:moonlander]
                 [:semicolon [:!Squote :!Squote :left_arrow] !:moonlander]
@@ -262,21 +275,51 @@
                 [:d :!S6 !:moonlander]
                 [:f :!S7 !:moonlander]
                 [:g :!S8 !:moonlander]
+                [:spacebar :!Td]
                 ]}
 
-                ;; this comes later or else command tab doesn't work
-                {:des "tab meh" :rules [
-                        [:tab ["meh-layer" 1] nil {:alone [:tab] :afterup ["meh-layer" 0]}]
-                ]}
+        {:des "slash-symbols mapping"
+        :rules [:slash-symbols
+                [:spacebar :!S1 !:moonlander]
+                [:x :!S2 !:moonlander]
+                [:c :!S3 !:moonlander]
+                [:v :!S4 !:moonlander]
+                [:b :!Sgrave_accent_and_tilde !:moonlander]
+                [:a :!S5 !:moonlander]
+                [:s :!S6 !:moonlander]
+                [:d :!S7 !:moonlander]
+                [:f :!S8 !:moonlander]
+                [:g :!Sgrave_accent_and_tilde !:moonlander]
+                [:1 :f1]
 
-                {:des "switch colon and semicolon"
-                :rules [
-                        [:semicolon :!Ssemicolon]
-                        [:!Ssemicolon :semicolon]
-                ]}
+                [:2 :f2]
+                [:3 :f3]
+                [:4 :f4]
+                [:5 :f5]
+                [:6 :f6]
+                [:7 :f7]
+                [:8 :f8]
+                [:9 :f9]
+                [:0 :f10]
+        ]}
+
+        ;; this comes later or else command tab doesn't work
+        {:des "tab meh" :rules [
+                [:tab ["meh-layer" 1] nil {:alone [:tab] :afterup ["meh-layer" 0]}]
+        ]}
+
+        {:des "slash symbols" :rules [
+                [:slash ["slash-symbols" 1] nil {:alone [:slash] :afterup ["slash-symbols" 0]}]
+        ]}
+
+        {:des "switch colon and semicolon"
+        :rules [
+                [:semicolon :!Ssemicolon]
+                [:!Ssemicolon :semicolon]
+        ]}
 
         {:des "launcher mode"
-                :rules [:launcher
+        :rules [:launcher
                 [:t [:open-app "iterm"]]
                 [:b [:open-app "google chrome"]]
                 [:c [:open-app "visual studio code"]]
