@@ -5,6 +5,8 @@
 	ui = auto
 [core]
 	editor = vim
+	excludesfile = /Users/dalittle/.gitignore_global
+	hooksPath = /Users/dalittle/.git_hooks
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
