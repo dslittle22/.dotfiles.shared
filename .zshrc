@@ -39,7 +39,6 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked git-stashed
 +vi-git-stashed() {
   if [ "$(git stash list 2>/dev/null)" != "" ]
   then
-    echo $(git rev-list --walk-reflogs --count refs/stash)
     hook_com[misc]="S:$(git rev-list --walk-reflogs --count refs/stash)"
   fi
 }
