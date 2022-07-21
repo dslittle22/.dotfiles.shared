@@ -3,7 +3,7 @@ export HISTSIZE=1000 # Maximum events for internal history
 export SAVEHIST=1000 # Maximum events in history file
 
 # better autocomplete (e.g. git branches, fix capitalization errors)
-autoload -Uz compinit && compinit 
+autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # get version control system info
@@ -21,13 +21,26 @@ zstyle ':vcs_info:git:*' formats "%F{40}%b %F{220}%u%c%m%f"
 # display on action
 zstyle ':vcs_info:git:*' actionformats '%F{40}%b|%F{220}%u%c%F{1}(%a)%f'
 # run hook below to check for untracked files
-zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked git-stashed
+
+# this stuff is confusing. here's a link for some docs:
+# https://opensource.apple.com/source/zsh/zsh-61/zsh/Misc/vcs_info-examples.auto.html
+# hook_com[staged] is picked up because the %c in formats above refers to staged.
+# hook_com[misc] is picked up by %m.
 
 +vi-git-untracked() {
   if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
       git status --porcelain | grep -m 1 '^??' &>/dev/null
   then
-    hook_com[misc]='?'
+    hook_com[staged]='?'
+  fi
+}
+
++vi-git-stashed() {
+  if [ "$(git stash list 2>/dev/null)" != "" ]
+  then
+    echo $(git rev-list --walk-reflogs --count refs/stash)
+    hook_com[misc]="S:$(git rev-list --walk-reflogs --count refs/stash)"
   fi
 }
 
