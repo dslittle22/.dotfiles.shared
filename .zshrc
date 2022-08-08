@@ -87,12 +87,16 @@ timezsh() {
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
 
-pullandmerge() {
+git_pull_and_merge() {
+  if [ -z "$1" ]; then
+    echo "Pass in a branch name."
+    return
+  fi
   current_branch=$(git symbolic-ref HEAD 2>/dev/null | cut -d"/" -f 3);
-  git checkout $1;
+  git checkout "$1";
   git pull;
-  git checkout $current_branch;
-  git merge $1;
+  git checkout "$current_branch";
+  git merge "$1";
 }
 
 # aliases
@@ -117,6 +121,7 @@ alias gsp="git stash pop"
 alias gsa="git stash apply"
 alias gpul="git pull"
 alias gpus="git push"
+alias gpm="git_pull_and_merge"
 
 # colorize output of ls, with some aliases
 alias ls="ls -G"
