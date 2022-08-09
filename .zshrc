@@ -92,7 +92,8 @@ git_pull_and_merge() {
     echo "Pass in a branch name."
     return
   fi
-  current_branch=$(git symbolic-ref HEAD 2>/dev/null | cut -d"/" -f 3);
+  current_branch=$(git symbolic-ref --short HEAD 2>/dev/null);
+  # current_branch=$(git symbolic-ref HEAD 2>/dev/null | cut -d"/" -f 3);
   git checkout "$1";
   git pull;
   git checkout "$current_branch";
