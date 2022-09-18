@@ -73,7 +73,7 @@ PROMPT="${err}${dir} ${suffix}"
 RPROMPT="%F{40}%${prompt_width}<…<${git_info}"
 
 if [ -n "$VIRTUAL_ENV" ]; then
-  RPROMPT="🐍:(`basename \"$VIRTUAL_ENV\"`)$RPROMPT "
+  RPROMPT="🐍 `basename \"$VIRTUAL_ENV\"` $RPROMPT "
 fi
 
 # functions
