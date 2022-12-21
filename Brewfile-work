@@ -7,40 +7,35 @@ tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "qmk/qmk"
 tap "yqrashawn/goku"
-brew "jpeg-xl"
-brew "aom"
 brew "boost"
 brew "glib"
 brew "sqlite"
 brew "python@3.9"
-brew "libidn2"
-brew "unbound"
-brew "gnutls"
-brew "harfbuzz"
-brew "leptonica"
-brew "libbluray"
-brew "srt"
-brew "ffmpeg"
 brew "git"
-brew "gobject-introspection"
+brew "harfbuzz"
 brew "macos-trash"
 brew "mas"
 brew "perl"
 brew "pillow", link: false
 brew "python@3.10"
+brew "unbound"
 brew "vim"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 brew "qmk/qmk/qmk"
 brew "yqrashawn/goku/goku"
 cask "1password"
+cask "aldente"
 cask "alt-tab"
+cask "appcleaner"
 cask "cheatsheet"
+cask "coconutbattery"
 cask "font-fira-code-nerd-font"
 cask "font-meslo-lg-nerd-font"
 cask "iina"
 cask "mullvadvpn"
 cask "numi"
+cask "onyx"
 cask "shottr"
 cask "superduper"
 mas "1Password for Safari", id: 1569813296
@@ -57,10 +52,8 @@ mas "Numbers", id: 409203825
 mas "Okta Verify", id: 490179405
 mas "OmniFocus", id: 1346203938
 mas "Pages", id: 409201541
-mas "Reeder", id: 1529448980
 mas "Slack", id: 803453959
 mas "SponsorBlock for YouTube - Skip Sponsorships", id: 1573461917
-mas "Streaks", id: 963034692
 mas "Userscripts", id: 1463298887
 mas "Velja", id: 1607635845
 mas "Vinegar", id: 1591303229

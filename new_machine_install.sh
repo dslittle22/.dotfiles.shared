@@ -26,6 +26,7 @@ if [[ "$machine" != work && "$machine" != personal ]]; then
     exit 1;
 fi
 
+echo "Running script with profile: $machine"
 
 echo "Checking if homebrew is installed..."
 
@@ -85,7 +86,6 @@ for filepath in "${symlinks[@]}"; do
   ln -s ~/.dotfiles/$file $filepath
 done
 
-
 if [ ! -d ~/.vim/pack/plugins/start/ ]; then
   echo "Creating ~/.vim/pack/plugins/start/ directory..."
   mkdir ~/.vim/pack/plugins/start;
@@ -138,4 +138,6 @@ echo "[ ] Install wavelink and import settings"
 echo "[ ] ITerm2: Preferences -> General -> Preferences -> Load preferences from a custom folder or URL: ~/.dotfiles. \
 Then, import color scheme (~/.dotfiles/material-ui-colors)"
 echo "[ ] Set MacOS shortcuts (e.g. f4 to DND, f5 = show desktop, cmd + option + arrow = switch tab, cmd + e = archive)"
-echo "[ ] install overcast, "
+echo "[ ] install overcast"
+echo "[ ] install overcast"
+

@@ -1,0 +1,161 @@
+qmk/qmk/qmk
+├── avrdude
+│   ├── hidapi
+│   ├── libftdi
+│   │   ├── boost
+│   │   │   ├── icu4c
+│   │   │   ├── xz
+│   │   │   └── zstd
+│   │   │       ├── lz4
+│   │   │       └── xz
+│   │   ├── confuse
+│   │   └── libusb
+│   ├── libusb
+│   └── libusb-compat
+│       └── libusb
+├── bootloadhid
+│   └── libusb-compat
+│       └── libusb
+├── clang-format
+├── dfu-programmer
+│   └── libusb-compat
+│       └── libusb
+├── dfu-util
+│   └── libusb
+├── hidapi
+├── libusb
+├── make
+├── mdloader
+├── osx-cross/arm/arm-gcc-bin@8
+├── osx-cross/avr/avr-gcc@8
+│   ├── avr-binutils
+│   ├── gmp
+│   ├── isl
+│   │   └── gmp
+│   ├── libmpc
+│   │   ├── gmp
+│   │   └── mpfr
+│   │       └── gmp
+│   └── mpfr
+│       └── gmp
+├── pillow
+│   ├── jpeg-turbo
+│   ├── libimagequant
+│   ├── libraqm
+│   │   ├── freetype
+│   │   │   └── libpng
+│   │   ├── fribidi
+│   │   └── harfbuzz
+│   │       ├── cairo
+│   │       │   ├── fontconfig
+│   │       │   │   └── freetype
+│   │       │   │       └── libpng
+│   │       │   ├── freetype
+│   │       │   │   └── libpng
+│   │       │   ├── glib
+│   │       │   │   ├── gettext
+│   │       │   │   └── pcre2
+│   │       │   ├── libpng
+│   │       │   ├── libx11
+│   │       │   │   ├── libxcb
+│   │       │   │   │   ├── libpthread-stubs
+│   │       │   │   │   │   └── pkg-config
+│   │       │   │   │   ├── libxau
+│   │       │   │   │   │   └── xorgproto
+│   │       │   │   │   └── libxdmcp
+│   │       │   │   │       └── xorgproto
+│   │       │   │   └── xorgproto
+│   │       │   ├── libxcb
+│   │       │   │   ├── libpthread-stubs
+│   │       │   │   │   └── pkg-config
+│   │       │   │   ├── libxau
+│   │       │   │   │   └── xorgproto
+│   │       │   │   └── libxdmcp
+│   │       │   │       └── xorgproto
+│   │       │   ├── libxext
+│   │       │   │   ├── libx11
+│   │       │   │   │   ├── libxcb
+│   │       │   │   │   │   ├── libpthread-stubs
+│   │       │   │   │   │   │   └── pkg-config
+│   │       │   │   │   │   ├── libxau
+│   │       │   │   │   │   │   └── xorgproto
+│   │       │   │   │   │   └── libxdmcp
+│   │       │   │   │   │       └── xorgproto
+│   │       │   │   │   └── xorgproto
+│   │       │   │   └── xorgproto
+│   │       │   ├── libxrender
+│   │       │   │   ├── libx11
+│   │       │   │   │   ├── libxcb
+│   │       │   │   │   │   ├── libpthread-stubs
+│   │       │   │   │   │   │   └── pkg-config
+│   │       │   │   │   │   ├── libxau
+│   │       │   │   │   │   │   └── xorgproto
+│   │       │   │   │   │   └── libxdmcp
+│   │       │   │   │   │       └── xorgproto
+│   │       │   │   │   └── xorgproto
+│   │       │   │   └── xorgproto
+│   │       │   ├── lzo
+│   │       │   └── pixman
+│   │       ├── freetype
+│   │       │   └── libpng
+│   │       ├── glib
+│   │       │   ├── gettext
+│   │       │   └── pcre2
+│   │       ├── graphite2
+│   │       └── icu4c
+│   ├── libtiff
+│   │   ├── jpeg-turbo
+│   │   └── zstd
+│   │       ├── lz4
+│   │       └── xz
+│   ├── libxcb
+│   │   ├── libpthread-stubs
+│   │   │   └── pkg-config
+│   │   ├── libxau
+│   │   │   └── xorgproto
+│   │   └── libxdmcp
+│   │       └── xorgproto
+│   ├── little-cms2
+│   │   ├── jpeg-turbo
+│   │   └── libtiff
+│   │       ├── jpeg-turbo
+│   │       └── zstd
+│   │           ├── lz4
+│   │           └── xz
+│   ├── openjpeg
+│   │   ├── libpng
+│   │   ├── libtiff
+│   │   │   ├── jpeg-turbo
+│   │   │   └── zstd
+│   │   │       ├── lz4
+│   │   │       └── xz
+│   │   └── little-cms2
+│   │       ├── jpeg-turbo
+│   │       └── libtiff
+│   │           ├── jpeg-turbo
+│   │           └── zstd
+│   │               ├── lz4
+│   │               └── xz
+│   ├── tcl-tk
+│   │   └── openssl@1.1
+│   │       └── ca-certificates
+│   └── webp
+│       ├── giflib
+│       ├── jpeg-turbo
+│       ├── libpng
+│       └── libtiff
+│           ├── jpeg-turbo
+│           └── zstd
+│               ├── lz4
+│               └── xz
+├── python
+│   ├── gdbm
+│   ├── mpdecimal
+│   ├── openssl@1.1
+│   │   └── ca-certificates
+│   ├── readline
+│   ├── sqlite
+│   │   └── readline
+│   └── xz
+└── teensy_loader_cli
+
