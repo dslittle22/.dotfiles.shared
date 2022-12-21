@@ -2,9 +2,7 @@ export HISTFILE="$ZDOTDIR/.zhistory" # History filepath
 export HISTSIZE=1000 # Maximum events for internal history
 export SAVEHIST=1000 # Maximum events in history file
 
-# update path for MacTex binaries
-PATH=/usr/local/texlive/2022/bin/universal-darwin:$PATH
-
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # better autocomplete (e.g. git branches, fix capitalization errors)
 autoload -Uz compinit && compinit

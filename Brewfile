@@ -46,10 +46,9 @@ cask "superduper"
 mas "1Password for Safari", id: 1569813296
 mas "AdGuard for Safari", id: 1440147259
 mas "Baking Soda", id: 1601151613
-mas "BlockYT", id: 1575379461
+# mas "BlockYT", id: 1575379461
 mas "Consent-O-Matic", id: 1606897889
 mas "Drafts", id: 1435957248
-mas "Final Cut Pro", id: 424389933
 mas "Flow", id: 1423210932
 mas "GoodNotes", id: 1444383602
 mas "Hidden Bar", id: 1452453066

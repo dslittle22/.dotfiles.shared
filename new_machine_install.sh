@@ -51,6 +51,11 @@ brew tap homebrew/cask-fonts
 brew install font-meslo-lg-nerd-font
 brew install font-fira-code-nerd-font
 
+echo "Checking for ~/.zsh ..."
+if [ ! -d ${ZDOTDIR} ]; then
+  echo "~/.zsh/ (ZDOTDIR) does not exist, creating"
+  mkdir ${ZDOTDIR}
+fi
 
 echo "Checking for .zshrc.local..."
 if [ ! -f ${ZDOTDIR}/.zshrc.local ]; then
@@ -86,10 +91,7 @@ for filepath in "${symlinks[@]}"; do
   ln -s ~/.dotfiles/$file $filepath
 done
 
-if [ ! -d ~/.vim/pack/plugins/start/ ]; then
-  echo "Creating ~/.vim/pack/plugins/start/ directory..."
-  mkdir ~/.vim/pack/plugins/start;
-fi
+mkdir -p ~/.vim/pack/plugins/start;
 cd ~/.vim/pack/plugins/start;
 
 declare -a vimplugins=(https://tpope.io/vim/surround.git https://tpope.io/vim/commentary.git https://github.com/sainnhe/sonokai.git)
@@ -114,7 +116,7 @@ else
   brew bundle --file=./Brewfile-personal
 fi
 
-pause "Go setup Karabiner permissions!"
+pause "Go setup Karabiner permissions and rename profile to \"default\"!"
 
 if [ ! -d ~/.config/karabiner ]; then
   mkdir ~/.config/karabiner
@@ -131,8 +133,6 @@ echo "Running goku..."
 goku
 
 echo "Remaining things to do:"
-# echo "[ ] configure firefox userchrome (https://www.userchrome.org/how-create-userchrome-css.html) \
-# and symlink: ln -s ~/.dotfiles/userChrome.css ~/Library/Application Support/Firefox/Profiles/\`weird string\`.default-release/chrome/userChrome.css"
 echo "[ ] Import rectangle settings"
 echo "[ ] Install wavelink and import settings"
 echo "[ ] ITerm2: Preferences -> General -> Preferences -> Load preferences from a custom folder or URL: ~/.dotfiles. \
