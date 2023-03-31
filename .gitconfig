@@ -1,12 +1,11 @@
 [user]
 	name = Danny Little
-	email = dannyl9979@gmail.com
+	email = dalittle@hubspot.com
 [color]
 	ui = auto
 [core]
 	editor = vim
 	pager = less -r --mouse
-	excludesfile = /Users/dalittle/.gitignore_global
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
