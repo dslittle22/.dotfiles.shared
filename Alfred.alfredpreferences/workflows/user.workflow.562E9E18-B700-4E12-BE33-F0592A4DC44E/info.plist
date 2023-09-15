@@ -19,19 +19,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>B3FC0A5E-4AD8-49A0-BD46-2C78B91C22DF</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>BD9E14D5-46DA-4B57-8BFE-EB4870672564</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Danny Little</string>
@@ -91,27 +78,6 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>ofq</string>
-				<key>subtext</key>
-				<string></string>
-				<key>text</key>
-				<string></string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>B3FC0A5E-4AD8-49A0-BD46-2C78B91C22DF</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -123,15 +89,6 @@
 			<real>30</real>
 			<key>ypos</key>
 			<real>40</real>
-		</dict>
-		<key>B3FC0A5E-4AD8-49A0-BD46-2C78B91C22DF</key>
-		<dict>
-			<key>note</key>
-			<string>Type your keyword into Alfred to trigger this workflow.</string>
-			<key>xpos</key>
-			<real>30</real>
-			<key>ypos</key>
-			<real>230</real>
 		</dict>
 		<key>BD9E14D5-46DA-4B57-8BFE-EB4870672564</key>
 		<dict>

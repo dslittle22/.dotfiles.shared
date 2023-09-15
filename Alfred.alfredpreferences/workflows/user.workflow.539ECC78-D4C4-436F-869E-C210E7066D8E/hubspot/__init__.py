@@ -12,6 +12,11 @@ from .monitor_deployables import *
 from .monitor_systems import *
 from .api_catalog import *
 from .gates import *
+from .kafka_topics import *
+from .tq2_queues import *
+from .vitess_keyspaces import *
+from .hbase_tables import *
+from .athena_databases import *
 from .docs import *
 
 TOOLS = dict(
@@ -40,5 +45,14 @@ TOOLS = dict(
     apiqa=ApiCatalogQA,
     gates=GatesPROD,
     gatesqa=GatesQA,
+    kafka=KafkaTopicsPROD,
+    kafkaqa=KafkaTopicsQA,
+    tq2=Tq2QueuesPROD,
+    tq2qa=Tq2QueuesQA,
+    vitess=VitessKeyspacesPROD,
+    vitessqa=VitessKeyspacesQA,
+    hbase=HbaseTablesPROD,
+    hbaseqa=HbaseTablesQA,
+    athena=AthenaDatabases,
     docs=Docs,
 )

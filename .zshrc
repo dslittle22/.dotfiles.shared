@@ -111,7 +111,6 @@ alias python="/opt/homebrew/bin/python3"
 alias avenv="source env/bin/activate"
 alias dvenv="deactivate"
 alias mvenv="python3 -m venv env"
-alias matlab="/Applications/MATLAB_R2022b.app/bin/matlab -nodisplay -nosplash -nodesktop -nojvm"
 alias brewup="brew update && brew upgrade && brew cleanup"
 alias sz="source ${ZDOTDIR}/.zshrc"
 alias vz="vim ${ZDOTDIR}/.zshrc"
@@ -121,8 +120,13 @@ alias gd="git diff"
 alias gcm="git commit -m"
 alias gcmm="git commit -m"
 alias gacm="git add . && git commit -m"
+alias gundo="git reset --soft HEAD~1"
 alias glo="git log --oneline"
+<<<<<<< Updated upstream
 alias glog="git log --oneline --graph --decorate"
+=======
+alias glog="git log --oneline --graph --decorate --all"
+>>>>>>> Stashed changes
 alias gch="git checkout"
 alias gb="git branch"
 alias gst="git stash"
@@ -133,7 +137,6 @@ alias gsa="git stash apply"
 alias gpul="git pull"
 alias gpus="git push"
 alias gpm="git_pull_and_merge"
-# alias man="xman"
 # colorize output of ls, with some aliases
 alias ls="ls -GF"
 alias lsl="ls -lGF"
@@ -153,4 +156,4 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 if [ -f ${ZDOTDIR}/.zshrc.local ]; then
   . "${ZDOTDIR}/.zshrc.local";
 fi
-GOPATH=/Users/dannylittle/.go
+GOPATH=$HOME/.go

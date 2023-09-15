@@ -59,9 +59,6 @@
                         [:!Rdelete_or_backspace :!Odelete_or_backspace]
                         [:!OQspacebar :vk_none]
                 ]}
-        {:des "left shift + space = command + space"
-                :rules [[:!Sspacebar :!Cspacebar]]}
-
         {:des "command + caps = command + ctrl + escape"
                 :rules [
                         [:!Qcaps_lock :!COescape]

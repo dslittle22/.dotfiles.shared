@@ -2,6 +2,7 @@ from tool import Tool
 
 ALGOLIA_APPLICATION_ID = "99Q9UZW2Q8"
 ALGOLIA_API_KEY = "a972db581c2410a1f8276eab3819a936"
+ALGOLIA_INDEX_NAME = "product-docs-v20221209-prod"
 
 URL = "https://%s-dsn.algolia.net/1/indexes/*/queries" % ALGOLIA_APPLICATION_ID.lower()
 PARAMS = {
@@ -20,8 +21,8 @@ class Docs(Tool):
         if args and len(args) and len(args[0].strip()):
             search = " ".join(args)
             data = (
-                '{"requests":[{"indexName":"hs-docs-test","params":"query='
-                + search
+                '{"requests":[{"indexName":"' + ALGOLIA_INDEX_NAME + '"'
+                + ',"params":"query=' + search
                 + '&hitsPerPage=20&facetFilters=%5B%22tags%3A-hidden%22%5D"}]}'
             )
             result = self.post(

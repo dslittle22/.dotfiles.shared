@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>099EEEF2-D599-45EB-87EF-632EB1571519</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>groksym</string>
+			<key>text</key>
+			<string>Search symbol in opengrok</string>
+			<key>url</key>
+			<string>https://private.hubteam.com/opengrok/search?refs={query}</string>
+		</dict>
+		<key>5D7E2E18-A9D6-4C3B-A093-6B72B239A15C</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>grok</string>
+			<key>text</key>
+			<string>Search in opengrok</string>
+			<key>url</key>
+			<string>https://private.hubteam.com/opengrok/search?full={query}</string>
+		</dict>
+		<key>97D882A6-D488-4068-AC46-EA587A17B08F</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>og</string>
+			<key>text</key>
+			<string>opengrok</string>
+			<key>url</key>
+			<string>https://private.hubteam.com/opengrok/</string>
+		</dict>
+		<key>D4BBE751-EECD-4920-BBAE-95EE4C914FE8</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>grokdef</string>
+			<key>text</key>
+			<string>Search definition in opengrok</string>
+			<key>url</key>
+			<string>https://private.hubteam.com/opengrok/search?defs={query}</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

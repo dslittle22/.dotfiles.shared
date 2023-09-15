@@ -110,6 +110,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>4889D893-BBB2-4FBA-8B93-0B8256676486</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A15F9C70-AE19-4CB8-8A6D-4BC641157FCF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>5583C2EE-D7EC-46E9-B319-ABD9279A9EB0</key>
 		<array>
 			<dict>
@@ -149,7 +162,59 @@
 				<false/>
 			</dict>
 		</array>
+		<key>69C68CAB-6758-43BB-A6BD-0A370AC269E7</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A15F9C70-AE19-4CB8-8A6D-4BC641157FCF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>6F6AE735-6575-4085-AEBA-0FB2BB3F9212</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A15F9C70-AE19-4CB8-8A6D-4BC641157FCF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>752B9E91-D8F6-42D0-9758-75B4E22FDF97</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A15F9C70-AE19-4CB8-8A6D-4BC641157FCF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>7D67229E-8F49-4E22-9E06-1CD9C013866B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A15F9C70-AE19-4CB8-8A6D-4BC641157FCF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>7E4B4A7F-7EFB-4D68-877E-71BBCCE6AE09</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -214,7 +279,46 @@
 				<false/>
 			</dict>
 		</array>
+		<key>9809062E-10E0-4F0B-98CC-5D6CEF1C78E8</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A15F9C70-AE19-4CB8-8A6D-4BC641157FCF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>A6CD06BA-7D0C-4156-9274-C6CC302ABBA5</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A15F9C70-AE19-4CB8-8A6D-4BC641157FCF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>AEAC61B7-BBBF-4D0E-B394-D055EA263CE4</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A15F9C70-AE19-4CB8-8A6D-4BC641157FCF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>B281AD1E-4EB1-462B-9A80-D53A967A46F5</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -280,6 +384,19 @@
 			</dict>
 		</array>
 		<key>D9C87DF8-7262-4CCC-8F53-8C9A431F3B26</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A15F9C70-AE19-4CB8-8A6D-4BC641157FCF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>DA36D361-C997-4A89-AEDE-225F95E80704</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -1621,6 +1738,456 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
+				<string>kafka</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching Kafka topics...</string>
+				<key>script</key>
+				<string>export PATH="/opt/homebrew/bin:/usr/local/bin:${PATH}"
+                    python2 tools.py -kafka "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Start typing a Kafka topic name</string>
+				<key>title</key>
+				<string>Kafka Topics</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>A6CD06BA-7D0C-4156-9274-C6CC302ABBA5</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>kafkaqa</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching Kafka topics...</string>
+				<key>script</key>
+				<string>export PATH="/opt/homebrew/bin:/usr/local/bin:${PATH}"
+                    python2 tools.py -kafkaqa "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Start typing a Kafka topic name</string>
+				<key>title</key>
+				<string>Kafka Topics (QA)</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>B281AD1E-4EB1-462B-9A80-D53A967A46F5</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>tq2</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching TQ2 queues...</string>
+				<key>script</key>
+				<string>export PATH="/opt/homebrew/bin:/usr/local/bin:${PATH}"
+                    python2 tools.py -tq2 "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Start typing a TQ2 queue name</string>
+				<key>title</key>
+				<string>TQ2 Queues</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>752B9E91-D8F6-42D0-9758-75B4E22FDF97</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>tq2qa</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching TQ2 queues...</string>
+				<key>script</key>
+				<string>export PATH="/opt/homebrew/bin:/usr/local/bin:${PATH}"
+                    python2 tools.py -tq2qa "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Start typing a TQ2 queue name</string>
+				<key>title</key>
+				<string>TQ2 Queues (QA)</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>9809062E-10E0-4F0B-98CC-5D6CEF1C78E8</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>hbase</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching HBase tables...</string>
+				<key>script</key>
+				<string>export PATH="/opt/homebrew/bin:/usr/local/bin:${PATH}"
+                    python2 tools.py -hbase "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Start typing a HBase table name</string>
+				<key>title</key>
+				<string>HBase Tables</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>6F6AE735-6575-4085-AEBA-0FB2BB3F9212</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>hbaseqa</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching HBase tables...</string>
+				<key>script</key>
+				<string>export PATH="/opt/homebrew/bin:/usr/local/bin:${PATH}"
+                    python2 tools.py -hbaseqa "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Start typing a HBase table name</string>
+				<key>title</key>
+				<string>HBase Tables (QA)</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>7E4B4A7F-7EFB-4D68-877E-71BBCCE6AE09</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>vitess</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching Vitess Keyspaces...</string>
+				<key>script</key>
+				<string>export PATH="/opt/homebrew/bin:/usr/local/bin:${PATH}"
+                        python2 tools.py -vitess "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Start typing a Vitess keyspace name</string>
+				<key>title</key>
+				<string>Vitess Keyspaces</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>4889D893-BBB2-4FBA-8B93-0B8256676486</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>vitessqa</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching Vitess Keyspaces (QA)...</string>
+				<key>script</key>
+				<string>export PATH="/opt/homebrew/bin:/usr/local/bin:${PATH}"
+                      python2 tools.py -vitessqa "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Start typing a Vitess keyspace name</string>
+				<key>title</key>
+				<string>Vitess Keyspaces (QA)</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>DA36D361-C997-4A89-AEDE-225F95E80704</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>athena</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching Athena databases...</string>
+				<key>script</key>
+				<string>export PATH="/opt/homebrew/bin:/usr/local/bin:${PATH}"
+                    python2 tools.py -athena "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Start typing an Athena database name</string>
+				<key>title</key>
+				<string>Athena Databases</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>69C68CAB-6758-43BB-A6BD-0A370AC269E7</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
 				<string>docs</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
@@ -1735,6 +2302,13 @@
 			<key>ypos</key>
 			<integer>1770</integer>
 		</dict>
+		<key>4889D893-BBB2-4FBA-8B93-0B8256676486</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>2650</integer>
+		</dict>
 		<key>5583C2EE-D7EC-46E9-B319-ABD9279A9EB0</key>
 		<dict>
 			<key>xpos</key>
@@ -1756,12 +2330,40 @@
 			<key>ypos</key>
 			<integer>2650</integer>
 		</dict>
+		<key>69C68CAB-6758-43BB-A6BD-0A370AC269E7</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>2650</integer>
+		</dict>
+		<key>6F6AE735-6575-4085-AEBA-0FB2BB3F9212</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>2650</integer>
+		</dict>
+		<key>752B9E91-D8F6-42D0-9758-75B4E22FDF97</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>2650</integer>
+		</dict>
 		<key>7D67229E-8F49-4E22-9E06-1CD9C013866B</key>
 		<dict>
 			<key>xpos</key>
 			<integer>300</integer>
 			<key>ypos</key>
 			<integer>1220</integer>
+		</dict>
+		<key>7E4B4A7F-7EFB-4D68-877E-71BBCCE6AE09</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>2650</integer>
 		</dict>
 		<key>8431E72A-29C6-4C2E-A9D2-CC8C84F8DA73</key>
 		<dict>
@@ -1791,6 +2393,13 @@
 			<key>ypos</key>
 			<integer>2540</integer>
 		</dict>
+		<key>9809062E-10E0-4F0B-98CC-5D6CEF1C78E8</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>2650</integer>
+		</dict>
 		<key>A15F9C70-AE19-4CB8-8A6D-4BC641157FCF</key>
 		<dict>
 			<key>xpos</key>
@@ -1798,12 +2407,26 @@
 			<key>ypos</key>
 			<integer>2870</integer>
 		</dict>
+		<key>A6CD06BA-7D0C-4156-9274-C6CC302ABBA5</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>2650</integer>
+		</dict>
 		<key>AEAC61B7-BBBF-4D0E-B394-D055EA263CE4</key>
 		<dict>
 			<key>xpos</key>
 			<integer>300</integer>
 			<key>ypos</key>
 			<integer>1990</integer>
+		</dict>
+		<key>B281AD1E-4EB1-462B-9A80-D53A967A46F5</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>2650</integer>
 		</dict>
 		<key>B3AB7E56-CE61-4EAC-B0A5-ACD60AC95440</key>
 		<dict>
@@ -1839,6 +2462,13 @@
 			<integer>300</integer>
 			<key>ypos</key>
 			<integer>2100</integer>
+		</dict>
+		<key>DA36D361-C997-4A89-AEDE-225F95E80704</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>2650</integer>
 		</dict>
 		<key>DC76AC9E-E350-44E8-88B0-2ED9428B2995</key>
 		<dict>

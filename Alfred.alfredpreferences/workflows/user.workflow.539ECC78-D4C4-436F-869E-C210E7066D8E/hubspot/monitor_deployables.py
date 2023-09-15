@@ -23,7 +23,7 @@ class MonitorDeployables(Tool):
         return dict(
             title="Monitoring for %s" % deployable.get("name"),
             subtitle=deployable.get("team"),
-            arg="https://private.hubteam.com/monitoring/%s/alerting/deployables/%s/metrics/%s?source=ALFRED"
+            arg="https://private.hubteam.com/monitoring/%s/alerting/deployables/%s/metrics?environment=%s&hublet=na1"
             % (deployable.get("team"), deployable.get("name"), self.env),
             icon="icons/kepler.png",
             uid=deployable.get("name"),

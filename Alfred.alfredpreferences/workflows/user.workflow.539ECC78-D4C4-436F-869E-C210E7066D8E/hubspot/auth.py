@@ -8,7 +8,6 @@ import utils
 from okta_auth import OktaAuth, get_okta_keychain_key
 
 GITHUB_ACCESS_TOKEN_MSG = "Enter your GitHub Personal Access Token for Alfred.\n\nVisit HubSpot/alfred-hubspotdev-tools for instructions."
-INSTALL_HSAUTHCTL = "nex run && brew update && brew upgrade hsenv"
 
 
 class Auth(object):
@@ -34,18 +33,17 @@ class Auth(object):
         return token
 
     def call_hsauthctl(self):
-        try:
-            p = subprocess.Popen(
-                ["hsauthctl", "janus", "get-token"],
-                stdout=subprocess.PIPE,
-                stderr=subprocess.STDOUT,
-            )
-            result, _ = p.communicate()
-        except:
-            self.install_hsauthctl()
+        p = subprocess.Popen(
+            ["hsauthctl", "janus", "get-token"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+        )
+        result, _ = p.communicate()
 
         if p.returncode == 1:
-            self.install_hsauthctl()
+            self.wf.add_item("Error calling hsauthctl, check installation")
+            self.wf.send_feedback()
+            sys.exit(0)
 
         return result.split()[-1]
 
@@ -102,15 +100,5 @@ class Auth(object):
 
     def are_you_on_the_vpn(self):
         self.wf.add_item("Are you on the VPN?")
-        self.wf.send_feedback()
-        sys.exit(0)
-
-    def install_hsauthctl(self):
-        cmd = 'echo "' + INSTALL_HSAUTHCTL + '"|pbcopy'
-        subprocess.call(cmd, shell=True)
-        self.wf.add_item(
-            "Error calling hsauthctl, paste command below",
-            INSTALL_HSAUTHCTL,
-        )
         self.wf.send_feedback()
         sys.exit(0)
