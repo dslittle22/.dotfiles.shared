@@ -122,11 +122,7 @@ alias gcmm="git commit -m"
 alias gacm="git add . && git commit -m"
 alias gundo="git reset --soft HEAD~1"
 alias glo="git log --oneline"
-<<<<<<< Updated upstream
-alias glog="git log --oneline --graph --decorate"
-=======
 alias glog="git log --oneline --graph --decorate --all"
->>>>>>> Stashed changes
 alias gch="git checkout"
 alias gb="git branch"
 alias gst="git stash"
