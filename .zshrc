@@ -1,6 +1,8 @@
 export HISTFILE="$ZDOTDIR/.zhistory" # History filepath
-export HISTSIZE=1000 # Maximum events for internal history
-export SAVEHIST=1000 # Maximum events in history file
+export HISTSIZE=10000000 # Maximum events for internal history
+export SAVEHIST=10000000 # Maximum events in history file
+export HISTFILESIZE=10000000 # Maximum events in history file
+setopt INC_APPEND_HISTORY
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -106,6 +108,12 @@ git_pull_and_merge() {
   git merge "$1";
 }
 
+git_log_on_branch() {
+  default=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
+  current=$(git name-rev --name-only HEAD)
+  git log "$default".."$current" --oneline --graph --decorate
+}
+
 # aliases
 alias python="/opt/homebrew/bin/python3"
 alias avenv="source env/bin/activate"
@@ -121,8 +129,8 @@ alias gcm="git commit -m"
 alias gcmm="git commit -m"
 alias gacm="git add . && git commit -m"
 alias gundo="git reset --soft HEAD~1"
-alias glo="git log --oneline"
-alias glog="git log --oneline --graph --decorate --all"
+alias glo="git log --oneline --graph --decorate"
+alias gblo=git_log_on_branch
 alias gch="git checkout"
 alias gb="git branch"
 alias gst="git stash"
