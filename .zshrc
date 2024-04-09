@@ -114,6 +114,8 @@ git_log_on_branch() {
 }
 
 # aliases
+alias vim="nvim"
+alias vi="nvim"
 alias python="/opt/homebrew/bin/python3"
 alias avenv="source env/bin/activate"
 alias dvenv="deactivate"
