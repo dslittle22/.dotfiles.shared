@@ -133,6 +133,7 @@ echo "Running goku..."
 goku
 
 echo "Remaining things to do:"
+echo "- Add [include] .gitconfig.shared to .gitconfig"
 echo "- Import rectangle settings"
 echo "- Import safari adguard settings"
 echo "- Install wavelink and import settings"
