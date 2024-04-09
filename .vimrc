@@ -9,7 +9,6 @@ set ruler
 set visualbell
 
 set wrap
-set textwidth=79
 set formatoptions=tcqrn1
 set tabstop=2
 set shiftwidth=2

@@ -156,6 +156,9 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
+[ -f "/Users/dannylittle/.ghcup/env" ] && source "/Users/dannylittle/.ghcup/env" # ghcup-env
+
+
 if [ -f ${ZDOTDIR}/.zshrc.local ]; then
   . "${ZDOTDIR}/.zshrc.local";
 fi

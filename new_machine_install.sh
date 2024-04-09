@@ -1,4 +1,4 @@
-#!/bin/zsh
+tconfitconfigg#!/bin/zsh
 set -euo pipefail
 
 ZDOTDIR="${HOME}/.zsh"
@@ -75,7 +75,7 @@ if [ ! -d ~/.config ]; then
   mkdir ~/.config
 fi
 
-declare -a symlinks=("${ZDOTDIR}/.zshrc" ~/.vimrc ~/.gitconfig ~/.config/karabiner.edn)
+declare -a symlinks=("${ZDOTDIR}/.zshrc" ~/.vimrc ~/.gitconfig.shared ~/.config/karabiner.edn)
 
 for filepath in "${symlinks[@]}"; do
   file=${filepath##*/}

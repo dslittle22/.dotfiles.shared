@@ -131,11 +131,14 @@
                  ]}
         {:des "tab meh-layer"
                 :rules [:meh-layer
-                [:w :!SOTw [:macbook_internal :mistel]]
-                [:e :!SOTe [:macbook_internal :mistel]]
-                [:s :!SOTs [:macbook_internal :mistel]]
-                [:d :!SOTd [:macbook_internal :mistel]]
+                [:q :!SOTq :!sofle]
+                [:a :!SOTa :!sofle]
+                [:w :!SOTw :!sofle]
+                [:e :!SOTe :!sofle]
+                [:s :!SOTs :!sofle]
+                [:d :!SOTd :!sofle]
                 [:m :!SOTm :!sofle]
+                [:n :!SOTn :!sofle]
                 [:u :!SOTu :!sofle]
                 [:j :!SOTj :!sofle]
                 [:k :!SOTk :!sofle]
