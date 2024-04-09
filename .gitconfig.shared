@@ -1,23 +1,14 @@
-[user]
-	name = Danny Little
-	email = dannyl9979@gmail.com
 [color]
 	ui = auto
 [core]
-	editor = vim
+	editor = nvim
 	pager = less -r --mouse
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-[include]
-	path = ~/.gitconfig.local
 [push]
 	autoSetupRemote = true
 [remote "origin"]
 	prune = true
-[gpg]
-	format = ssh
-[commit]
-	gpgsign = true
