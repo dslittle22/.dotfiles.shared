@@ -40,3 +40,4 @@ autocmd FileType c setlocal commentstring=//\ %s
 autocmd FileType python setlocal commentstring=#\ %s
 autocmd FileType zsh setlocal commentstring=#\ %s
 autocmd FileType vim setlocal commentstring=\"\ %s
+:set scrolloff=10
