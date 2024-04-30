@@ -32,9 +32,16 @@ vnoremap . :norm.<CR>
 packloadall
 colorscheme sonokai
 
+:set termguicolors
+set autoread
+
+
 " search files recursively, using tab for completion
-set path+=**
+" set path+=**
+" set path+=**20
 set wildmenu
+set wildmode=list:longest,full
+" set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim,*/.log,*/.out
 
 autocmd FileType c setlocal commentstring=//\ %s
 autocmd FileType python setlocal commentstring=#\ %s

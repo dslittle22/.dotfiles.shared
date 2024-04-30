@@ -41,6 +41,9 @@
     :sofle [
             {:vendor_id 64562}
     ]
+    :glove80 [
+        {:vendor_id 5824}
+    ]
  }
 
  :applications {
@@ -231,7 +234,7 @@
         ;; when caps is held, it sets caps-mod to 1. this means that unlike the other
         ;; simlayers, i can hold it for a second and then still be in caps-mod.
         {:des "caps lock = escape if tapped alone, acts as modifier when held"
-        :rules [
+        :rules [:!glove80
                 [:caps_lock ["nav-layer" 1] nil {:alone [:escape] :afterup ["nav-layer" 0]}]
         ]}
 
