@@ -148,6 +148,8 @@
                 [:k :!SOTk :macbook]
                 [:l :!SOTl :macbook]
                 [:i :!SOTi :macbook]
+                [:hyphen :!SOThyphen :macbook]
+                [:6 :!SOT6 :macbook]
                 [:comma :!SOTcomma :macbook]
                 [:period :!SOTperiod :macbook]
                 [:semicolon :!SOTsemicolon :macbook]
