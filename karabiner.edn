@@ -14,8 +14,8 @@
  ;; you should probably only use them for letter keys that you type regularly.
  ;; for other keys, e.g. espace, you can probably just use a normal layer.
  :simlayers   {
-        :f-cmd {:key :f}
-        :j-cmd {:key :j}
+        ;; :f-cmd {:key :f}
+        ;; :j-cmd {:key :j}
         :m-sym {:key :m}
         :q-mod {:key :q}
         ;; :k-shift {:key :k}
@@ -28,7 +28,7 @@
 
  :layers {
         ;; :v-mod {:key :v }
-        :launcher {:key :backslash}
+        ;; :launcher {:key :backslash}
  }
 
  :devices {
@@ -48,7 +48,6 @@
 
  :applications {
         :vscode "com.microsoft.VSCode"
-        :safari "com.apple.Safari"
  }
 
  :main [
@@ -107,10 +106,6 @@
                         [:!Sf12 :f12]
                 ]}
 
-        {:des "remap cmd-shift-I to command-option-I"
-                :rules [:safari
-                        [:!SCi :!COi]
-                ]}
         ;; when holding down caps
         {:des "nav-layer mapping"
                 :rules [:nav-layer
@@ -252,12 +247,18 @@
                 [:!Ssemicolon :semicolon]
         ]}
 
-        {:des "launcher mode"
-        :rules [:launcher
-                [:t [:open-app "iterm"]]
-                [:b [:open-app "google chrome"]]
-                [:c [:open-app "visual studio code"]] ]
-                 :simlayer-threshold 500}
+        ;; {:des "launcher mode"
+        ;; :rules [:launcher
+        ;;         [:t [:open-app "iterm"]]
+        ;;         [:b [:open-app "google chrome"]]
+        ;;         [:c [:open-app "visual studio code"]] ]
+        ;;          :simlayer-threshold 500}
+
+        {:des "backslash to hyper when held"
+        :rules [
+                [:backslash :vk_none nil {:alone [:backslash] :held [:!CTOleft_shift] :params {:held 100}}]
+        ]}
+
 
          {:des "either shift + fn + num = fn key"
                 :rules [:glove80
