@@ -247,13 +247,6 @@
                 [:!Ssemicolon :semicolon]
         ]}
 
-        ;; {:des "launcher mode"
-        ;; :rules [:launcher
-        ;;         [:t [:open-app "iterm"]]
-        ;;         [:b [:open-app "google chrome"]]
-        ;;         [:c [:open-app "visual studio code"]] ]
-        ;;          :simlayer-threshold 500}
-
         {:des "backslash to hyper when held"
         :rules [
                 [:backslash :vk_none nil {:alone [:backslash] :held [:!CTOleft_shift] :params {:held 100}}]
