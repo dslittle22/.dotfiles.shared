@@ -44,6 +44,9 @@
     :glove80 [
             {:vendor_id 5824}
     ]
+    :voyager [
+            {:vendor_id 12951}
+    ]
  }
 
  :applications {
@@ -69,16 +72,8 @@
                         [:!Cescape :!COescape]
                         ]}
 
-        {:des "vscode shortcuts"
-                :rules [:vscode
-                        [:!SOk :!SOup_arrow]
-                        [:!SOj :!SOdown_arrow]
-                        [:!STk :!STup_arrow]
-                        [:!STj :!STdown_arrow]
-                ]}
-
         {:des "either shift + fn + num = fn key"
-                :rules [:mistel
+                :rules [
                         [:!Rf1 :f1]
                         [:!Rf2 :f2]
                         [:!Rf3 :f3]
@@ -163,7 +158,7 @@
                 [:r :mission_control [:macbook :mistel]]
                 [:s :rewind [:macbook :mistel]]
                 [:d :play_or_pause [:macbook :mistel]]
-                [:f :fastforward [:macbook :mistel]]
+                [:f :fast_forward [:macbook :mistel]]
                 [:j :quote [:macbook :mistel]]
                 [:k :!Squote [:macbook :mistel]]
                 [:i [:!Squote :!Squote :left_arrow] [:macbook :mistel]]
@@ -242,13 +237,13 @@
         ]}
 
         {:des "switch colon and semicolon"
-        :rules [
+        :rules [:!voyager
                 [:semicolon :!Ssemicolon]
                 [:!Ssemicolon :semicolon]
         ]}
 
         {:des "backslash to hyper when held"
-        :rules [
+        :rules [:macbook
                 [:backslash :vk_none nil {:alone [:backslash] :held [:!CTOleft_shift] :params {:held 100}}]
         ]}
 
@@ -257,7 +252,7 @@
                 :rules [:glove80
                         [:f6 :rewind]
                         [:f7 :play_or_pause]
-                        [:f8 :fastforward]
+                        [:f8 :fast_forward]
                         [:f9 :volume_decrement]
                         [:f10 :volume_increment]
                 ]}
