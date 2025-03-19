@@ -1,32 +1,32 @@
-tconfitconfigg#!/bin/zsh
+#!/bin/zsh
 set -euo pipefail
 
 ZDOTDIR="${HOME}/.zsh"
 
-print_usage() {
-  printf "Usage: -m should be either personal or work."
-}
+# print_usage() {
+#   printf "Usage: -m should be either personal or work."
+# }
 
-pause(){
-  echo $1
-  echo 'Press any key to continue...'; read -k1 -s
-}
+# pause(){
+#   echo $1
+#   echo 'Press any key to continue...'; read -k1 -s
+# }
 
-unset -v machine
-while getopts 'm:' opt; do
-  case $opt in
-    m) machine=$OPTARG;;
-    *) print_usage
-        exit 1
-  esac
-done
+# unset -v machine
+# while getopts 'm:' opt; do
+#   case $opt in
+#     m) machine=$OPTARG;;
+#     *) print_usage
+#         exit 1
+#   esac
+# done
 
-if [[ "$machine" != work && "$machine" != personal ]]; then
-    print_usage;
-    exit 1;
-fi
+# if [[ "$machine" != work && "$machine" != personal ]]; then
+#     print_usage;
+#     exit 1;
+# fi
 
-echo "Running script with profile: $machine"
+# echo "Running script with profile: $machine"
 
 echo "Checking if homebrew is installed..."
 
@@ -47,7 +47,6 @@ brew install git
 
 # https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
 echo "Installing fonts from homebrew..."
-brew tap homebrew/cask-fonts
 brew install font-meslo-lg-nerd-font
 brew install font-fira-code-nerd-font
 
@@ -75,7 +74,7 @@ if [ ! -d ~/.config ]; then
   mkdir ~/.config
 fi
 
-declare -a symlinks=("${ZDOTDIR}/.zshrc" ~/.vimrc ~/.gitconfig.shared ~/.config/karabiner.edn)
+declare -a symlinks=("${ZDOTDIR}/.zshrc" ~/.vimrc ~/.gitconfig.shared ~/.config/karabiner.edn ~/.config/neovim)
 
 for filepath in "${symlinks[@]}"; do
   file=${filepath##*/}
@@ -106,17 +105,17 @@ for ghlink in "${vimplugins[@]}"; do
   fi
 done
 
-cd ~/.dotfiles
-pause "Sign in to iCloud to get app store apps."
-pause "Installing ${machine} machine profile."
+# cd ~/.dotfiles
+# pause "Sign in to iCloud to get app store apps."
+# pause "Installing ${machine} machine profile."
 
-if [ "$machine" = 'work' ]; then
-    brew bundle --file=./Brewfile-work
-else
-  brew bundle --file=./Brewfile-personal
-fi
+# if [ "$machine" = 'work' ]; then
+#     brew bundle --file=./Brewfile-work
+# else
+#   brew bundle --file=./Brewfile-personal
+# fi
 
-pause "Go setup Karabiner permissions and rename profile to \"default\"!"
+pause "Go install goku, setup Karabiner permissions, and rename profile to \"default\"!"
 
 if [ ! -d ~/.config/karabiner ]; then
   mkdir ~/.config/karabiner
