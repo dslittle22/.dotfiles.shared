@@ -33,7 +33,7 @@
 
  :devices {
     :macbook [
-            {:vendor_id 1452}
+            {:is_built_in_keyboard true}
     ]
     :mistel [
             {:vendor_id 1241}
