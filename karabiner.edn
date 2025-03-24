@@ -64,13 +64,13 @@
                         [:!Rdelete_or_backspace :!Odelete_or_backspace]
                         [:!OQspacebar :vk_none]
                 ]}
-        {:des "command + caps = command + ctrl + escape"
-                :rules [
-                        [:!Qcaps_lock :!COescape]
-                        [:!Qescape :!COescape]
-                        [:!Ccaps_lock :!COescape]
-                        [:!Cescape :!COescape]
-                        ]}
+        ;; {:des "command + caps = command + ctrl + escape"
+        ;;         :rules [
+        ;;                 [:!Qcaps_lock :!COescape]
+        ;;                 [:!Qescape :!COescape]
+        ;;                 [:!Ccaps_lock :!COescape]
+        ;;                 [:!Cescape :!COescape]
+        ;;                 ]}
 
         {:des "either shift + fn + num = fn key"
                 :rules [

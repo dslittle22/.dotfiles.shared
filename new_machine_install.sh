@@ -74,7 +74,7 @@ if [ ! -d ~/.config ]; then
   mkdir ~/.config
 fi
 
-declare -a symlinks=("${ZDOTDIR}/.zshrc" ~/.vimrc ~/.gitconfig.shared ~/.config/karabiner.edn ~/.config/neovim)
+declare -a symlinks=("${ZDOTDIR}/.zshrc" ~/.vimrc ~/.gitconfig.shared ~/.config/karabiner.edn ~/.config/neovim ~/.config/ghostty ~/.config/raycast/personal-scripts)
 
 for filepath in "${symlinks[@]}"; do
   file=${filepath##*/}
