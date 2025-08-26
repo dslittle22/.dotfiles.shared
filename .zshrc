@@ -224,34 +224,53 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 [ -f "/Users/dannylittle/.ghcup/env" ] && source "/Users/dannylittle/.ghcup/env" # ghcup-env
 
-__fzf_history_widget() {
-  local n=1 fc_opts='-i'
-  awk_filter='
-    {
-  ts = int($2)
-  delta = systime() - ts
-  delta_days = int(delta / 86400)
-  if (delta < 0) { $2="+" (-delta_days) "d" }
-  else if (strftime("%Y%m%d", ts) == strftime("%Y%m%d")) { $2=strftime("%H:%M", ts) }
-  else { $2=delta_days "d" }
-  if (!seen[$0]++) print $0
-}'
-  local selected
-  selected=($(
-    fc -rl $fc_opts -t '%s' 1 | \
-      sed -E "s/^ *//" | \
-      gawk "$awk_filter" | \
-      FZF_DEFAULT_OPTS="--height 40% --with-nth 1.. --no-multi" fzf --query="$LBUFFER"
-  ))
-  if [[ -n $selected ]]; then
-    local -a arr
-    arr=("${(z)selected[@]}")
-    LBUFFER="${arr[@]:2}"
+  fzf-history-widget() {
+    local selected num
+    setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
+    local n=1 fc_opts=''
+    local awk_filter='{ cmd=$0; sub(/^\s*[0-9]+\*\s+/, "", cmd); if (!seen[cmd]++) print $0 }'
+
+    if [[ -o extended_history ]]; then
+      awk_filter='
+  {
+    ts = int($2)
+    delta = systime() - ts
+    delta_days = int(delta / 86400)
+    if (delta < 0) {
+      $2="+" (-delta_days) "d"
+    } else if (delta_days < 1 && delta < 72000) {
+      $2=strftime("%H:%M", ts)
+    } else if (delta_days == 0) {
+      $2="1d"
+    } else {
+      $2=delta_days "d"
+    }
+    line=$0; $1=""; $2=""
+    if (!seen[$0]++) print line
+  }'
+      fc_opts='-i'
+      n=2
+    fi
+
+     selected=( $(fc -rl $fc_opts -t '%s' 1 | sed -E "s/^ *//" | gawk "$awk_filter" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS --with-nth $n.. --bind=ctrl-r:toggle-sort
+  $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} --no-multi" fzf) )
+
+
+    local ret=$?
+    if [ -n "$selected" ]; then
+      num=$selected[1]
+      if [ -n "$num" ]; then
+        zle vi-fetch-history -n $num
+      fi
+    fi
     zle reset-prompt
-  fi
-}
-zle -N __fzf_history_widget
-bindkey '^R' __fzf_history_widget
+    return $ret
+  }
+
+  # Bind the enhanced widget to Ctrl-r
+  zle -N fzf-history-widget
+  bindkey '^R' fzf-history-widget
+
 
 if [ -f ${ZDOTDIR}/.zshrc.local ]; then
   . "${ZDOTDIR}/.zshrc.local";

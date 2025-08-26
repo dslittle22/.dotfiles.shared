@@ -50,6 +50,7 @@ autocmd FileType vim setlocal commentstring=\"\ %s
 nnoremap <SPACE> <Nop>
 nnoremap "<C-d>" "<C-d>zz"
 nnoremap "<C-u>" "<C-u>zz"
+inoremap <M-BS> <C-w>
 let mapleader=" "
 
 " override surround plugin mappings
