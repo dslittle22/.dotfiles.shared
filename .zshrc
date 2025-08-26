@@ -1,12 +1,9 @@
-export HISTFILE="$ZDOTDIR/histfile" # History filepath
+export HISTFILE="$ZDOTDIR/.zhistory" # History filepath
 export HISTSIZE=100000 # Maximum events for internal history
 export SAVEHIST=100000 # Maximum events in history file
 export HISTFILESIZE=100000 # Maximum events in history file
-setopt INC_APPEND_HISTORY
-setopt APPEND_HISTORY
 setopt EXTENDED_HISTORY
 setopt SHARE_HISTORY
-setopt INC_APPEND_HISTORY_TIME
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -224,14 +221,11 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 [ -f "/Users/dannylittle/.ghcup/env" ] && source "/Users/dannylittle/.ghcup/env" # ghcup-env
 
-  fzf-history-widget() {
-    local selected num
-    setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
-    local n=1 fc_opts=''
-    local awk_filter='{ cmd=$0; sub(/^\s*[0-9]+\*\s+/, "", cmd); if (!seen[cmd]++) print $0 }'
+fzf-history-widget() {
+  local selected num
+  setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
 
-    if [[ -o extended_history ]]; then
-      awk_filter='
+  local awk_filter='
   {
     ts = int($2)
     delta = systime() - ts
@@ -245,31 +239,26 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
     } else {
       $2=delta_days "d"
     }
-    line=$0; $1=""; $2=""
-    if (!seen[$0]++) print line
+  line=$0; $1=""; $2=""
+  if (!seen[$0]++) print line
   }'
-      fc_opts='-i'
-      n=2
+
+selected=( $(fc -rl -i -t '%s' 1 | sed -E "s/^ *//" | gawk "$awk_filter" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%}
+  $FZF_DEFAULT_OPTS --with-nth 2.. --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} --no-multi" fzf) )
+
+  local ret=$?
+  if [ -n "$selected" ]; then
+    num=$selected[1]
+    if [ -n "$num" ]; then
+      zle vi-fetch-history -n $num
     fi
+  fi
+  zle reset-prompt
+  return $ret
+}
 
-     selected=( $(fc -rl $fc_opts -t '%s' 1 | sed -E "s/^ *//" | gawk "$awk_filter" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS --with-nth $n.. --bind=ctrl-r:toggle-sort
-  $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} --no-multi" fzf) )
-
-
-    local ret=$?
-    if [ -n "$selected" ]; then
-      num=$selected[1]
-      if [ -n "$num" ]; then
-        zle vi-fetch-history -n $num
-      fi
-    fi
-    zle reset-prompt
-    return $ret
-  }
-
-  # Bind the enhanced widget to Ctrl-r
-  zle -N fzf-history-widget
-  bindkey '^R' fzf-history-widget
+zle -N fzf-history-widget
+bindkey '^R' fzf-history-widget
 
 
 if [ -f ${ZDOTDIR}/.zshrc.local ]; then
