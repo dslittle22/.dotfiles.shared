@@ -18,7 +18,7 @@
 # key =value
 # key = value
 
-theme = catppuccin-macchiato
+theme = Catppuccin Mocha
 font-thicken = true
 keybind = cmd+backspace=text:\x15
 quit-after-last-window-closed = true

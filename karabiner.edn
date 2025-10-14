@@ -116,7 +116,6 @@
     ;; !! | mandatory command + control + optional + shift (hyper)
     ;; ## | optional any
 
-
 ;; anatomy of a rule:
 ;; simple remapping: [:from_code :to_code]
 ;; multiple to's: [:from_code [:to_code_1 :to_code_2 ["var" 1]]
