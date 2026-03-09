@@ -18,18 +18,18 @@ fi
 brew_install() {
   if ! brew list "$1" &> /dev/null; then
     echo "Installing $1..."
-    brew install "$1"
+    brew install "$1" || echo "  Warning: failed to install $1, skipping"
   fi
 }
 
-brew_install 1password
+if [ ! -d "/Applications/1Password.app" ]; then
+  brew_install 1password
+fi
 brew_install git
 
 # https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
 brew_install font-meslo-lg-nerd-font
 brew_install font-fira-code-nerd-font
-
-# --- Symlinks: home/ -> ~/ ---
 
 echo "Symlinking home/ -> ~/..."
 
@@ -46,8 +46,6 @@ for file in "$DOTFILES_SHARED"/home/.*; do
   ln -sf "$DOTFILES_SHARED/home/$name" "$HOME/$name"
   echo "  $name -> ~/$name"
 done
-
-# --- Symlinks: config/ -> ~/.config/ ---
 
 echo "Symlinking config/ -> ~/.config/..."
 mkdir -p ~/.config
@@ -103,8 +101,8 @@ defaults write com.google.Chrome NSUserKeyEquivalents -dict-add "Duplicate Tab" 
 defaults write com.google.Chrome NSUserKeyEquivalents -dict-add "New Tab to the Right" "^@t"
 
 # Safari: Option+Cmd+Left = Show Previous Tab, Option+Cmd+Right = Show Next Tab
-defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Show Previous Tab" "~@\\U2190"
-defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Show Next Tab" "~@\\U2192"
+defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari NSUserKeyEquivalents -dict-add "Show Previous Tab" "~@\\U2190"
+defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari NSUserKeyEquivalents -dict-add "Show Next Tab" "~@\\U2192"
 
 # Zoom: Ctrl+Cmd+F = Enter Full Screen
 defaults write zoom.us.app NSUserKeyEquivalents -dict-add "Enter Full Screen" "^@f"
@@ -113,6 +111,5 @@ defaults write zoom.us.app NSUserKeyEquivalents -dict-add "Enter Full Screen" "^
 
 echo ""
 echo "Done! Remaining manual steps:"
-echo "- Clone .dotfiles.local and run its setup.sh"
-echo "- Import safari adguard settings"
+echo "- [maybe] clone .dotfiles.local and run its setup.sh"
 echo "- Install wavelink and import settings"
