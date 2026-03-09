@@ -1,4 +1,4 @@
-export HISTFILE="$ZDOTDIR/.zhistory" # History filepath
+export HISTFILE="$HOME/.zsh_history" # History filepath
 export HISTSIZE=100000 # Maximum events for internal history
 export SAVEHIST=100000 # Maximum events in history file
 export HISTFILESIZE=100000 # Maximum events in history file
@@ -183,8 +183,8 @@ alias avenv="source env/bin/activate"
 alias dvenv="deactivate"
 alias mvenv="python3 -m venv env"
 alias brewup="brew update && brew upgrade && brew cleanup"
-alias sz="source ${ZDOTDIR}/.zshrc"
-alias vz="vim ${ZDOTDIR}/.zshrc"
+alias sz="source ~/.zshrc"
+alias vz="vim ~/.zshrc.shared"
 alias gs="git status"
 alias ga="git add"
 alias gaa="git add ."
@@ -270,9 +270,5 @@ selected=( $(fc -rl -i -t '%s' 1 | sed -E "s/^ *//" | gawk "$awk_filter" | FZF_D
 zle -N fzf-history-widget
 bindkey '^R' fzf-history-widget
 
-
-if [ -f ${ZDOTDIR}/.zshrc.local ]; then
-  . "${ZDOTDIR}/.zshrc.local";
-fi
 
 GOPATH=$HOME/.go
