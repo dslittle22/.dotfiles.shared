@@ -3,15 +3,19 @@ return {
   dependencies = { 'rafamadriz/friendly-snippets' },
   version = '1.*',
   opts = {
-    keymap = { preset = 'super-tab' },
+    keymap = { preset = 'enter' },
     appearance = {
       nerd_font_variant = 'mono'
     },
-    completion = { documentation = { auto_show = false } },
-    sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
+    completion = {
+      documentation = { auto_show = true },
+      ghost_text = { enabled = true },
     },
-    fuzzy = { implementation = "prefer_rust_with_warning" }
+    sources = {
+      default = { 'lsp', 'path' },
+    },
+    fuzzy = { implementation = "prefer_rust_with_warning" },
+    signature = { enabled = true }
   },
   opts_extend = { "sources.default" }
 }

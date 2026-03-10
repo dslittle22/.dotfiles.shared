@@ -23,6 +23,7 @@ vim.opt.wildmode = "list:longest,full"
 vim.opt.scrolloff = 10
 
 vim.opt.backspace = 'indent,eol,start'
+vim.keymap.set('n', '<BS>', '"_X')
 vim.opt.history = 1000                 -- Store lots of command line history
 vim.opt.undolevels = 1000              -- Undo levels
 vim.opt.laststatus = 2                 -- Fix status bar

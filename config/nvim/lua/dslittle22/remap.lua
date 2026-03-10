@@ -31,6 +31,12 @@ local statement_types = {
   lexical_declaration = true,
 }
 
+vim.keymap.set('i', '<M-BS>', '<C-w>')
+
+if require("hubspot").is_hubspot() then
+  vim.keymap.set("n", "<leader>tt", require("hubspot.test_toggle").toggle, { desc = "Toggle test/source file" })
+end
+
 vim.keymap.set("n", "<leader>z", function()
   if not js_filetypes[vim.bo.filetype] then
     return
