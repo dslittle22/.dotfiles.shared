@@ -1,3 +1,17 @@
+vim.keymap.set('i', '<M-BS>', '<C-w>')
+
+-- when in visual mode, J and K to move line up and down
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- paste without deleting current buffer, by yanking selection to null register
+vim.keymap.set("x", "<leader>v", "\"_dp")
+
+-- leader + y (or Y) to yank to system clipboard
+vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>Y", "\"+Y")
+
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function()
     local opts = { buffer = 0 }
@@ -16,23 +30,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 local js_filetypes = { javascript = true, typescript = true, javascriptreact = true, typescriptreact = true }
 
-local statement_types = {
-  variable_declaration = true,
-  expression_statement = true,
-  return_statement = true,
-  if_statement = true,
-  for_statement = true,
-  for_in_statement = true,
-  while_statement = true,
-  throw_statement = true,
-  switch_statement = true,
-  try_statement = true,
-  export_statement = true,
-  lexical_declaration = true,
-}
-
-vim.keymap.set('i', '<M-BS>', '<C-w>')
-
 if require("hubspot").is_hubspot() then
   vim.keymap.set("n", "<leader>tt", require("hubspot.test_toggle").toggle, { desc = "Toggle test/source file" })
 end
@@ -46,22 +43,21 @@ vim.keymap.set("n", "<leader>z", function()
     return
   end
 
-  local node = vim.treesitter.get_node()
-  if not node then
-    return
-  end
-
-  while node and not statement_types[node:type()] do
-    node = node:parent()
-  end
-
-  if not node then
-    return
-  end
-
-  local start_row = node:start()
-  local end_row = node:end_()
-  local indent = vim.api.nvim_buf_get_lines(0, start_row, start_row + 1, false)[1]:match("^(%s*)")
-  local log_line = indent .. "console.log({ " .. word .. " })"
-  vim.api.nvim_buf_set_lines(0, end_row + 1, end_row + 1, false, { log_line })
+  vim.cmd("normal! }")
+  local log_line = "console.log({ " .. word .. " })"
+  vim.api.nvim_put({ log_line }, "l", true, true)
+  vim.cmd("normal! ==")
 end, { desc = "console.log word under cursor" })
+
+vim.keymap.set("n", "<leader>cp", function()
+  local path = vim.fn.fnamemodify(vim.fn.expand("%"), ":.")
+  vim.fn.setreg("+", path)
+  vim.notify(path)
+end, { desc = "Copy relative file path" })
+
+vim.keymap.set("n", "<leader>cl", function()
+  local path = vim.fn.fnamemodify(vim.fn.expand("%"), ":.")
+  local line = path .. ":" .. vim.fn.line(".")
+  vim.fn.setreg("+", line)
+  vim.notify(line)
+end, { desc = "Copy relative file path with line number" })

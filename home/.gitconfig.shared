@@ -10,6 +10,9 @@
 	smudge = git-lfs smudge -- %f
 [push]
 	autoSetupRemote = true
+[alias]
+ dbranch = "!f() { base=${1:-$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')}; git diff \"origin/$base\"...HEAD; }; f"
+ lbranch = "!f() { base=${1:-$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')}; git log \"origin/$base\".. --oneline --graph --decorate; }; f"
 [remote "origin"]
 	prune = true
 [rerere]

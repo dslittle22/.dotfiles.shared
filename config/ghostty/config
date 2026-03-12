@@ -18,9 +18,10 @@
 # key =value
 # key = value
 
-theme = Catppuccin Mocha
+theme = Nightfox
 font-thicken = true
 keybind = cmd+backspace=text:\x15
+keybind = super+ctrl+d=new_split:left
 quit-after-last-window-closed = true
 keybind = shift+enter=text:\n
 

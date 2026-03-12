@@ -1,11 +1,25 @@
 local plugins = {
   { "tpope/vim-surround" },
-  { "tpope/vim-fugitive" },
   { 'lewis6991/gitsigns.nvim', opts = {} },
 
   {
     "EdenEast/nightfox.nvim",
     config = function() vim.cmd.colorscheme('nightfox') end
+  },
+
+  {
+    "NeogitOrg/neogit",
+    lazy = true,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "esmuellert/codediff.nvim",      
+
+      "ibhagwan/fzf-lua",              -- optional
+    },
+    cmd = "Neogit",
+    keys = {
+      { "<leader>g", "<cmd>Neogit<cr>", desc = "Show Neogit UI" }
+    }
   },
 
   {
