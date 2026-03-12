@@ -12,9 +12,16 @@ local plugins = {
     lazy = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "esmuellert/codediff.nvim",      
+      {
+        "esmuellert/codediff.nvim",
+        opts = {
+          highlights = {
+            line_insert = "#2d4745",
+          },
+        },
+      },
 
-      "ibhagwan/fzf-lua",              -- optional
+      "ibhagwan/fzf-lua", -- optional
     },
     cmd = "Neogit",
     keys = {
