@@ -1,4 +1,5 @@
 vim.keymap.set('i', '<M-BS>', '<C-w>')
+vim.keymap.set('n', '<C-b>', '<C-6>')
 
 -- when in visual mode, J and K to move line up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
