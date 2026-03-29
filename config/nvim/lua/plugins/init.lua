@@ -1,6 +1,5 @@
 local plugins = {
   { "tpope/vim-surround" },
-  { "tpope/vim-fugitive" },
   {
     'lewis6991/gitsigns.nvim',
     opts = {
@@ -69,7 +68,9 @@ local plugins = {
 
       "ibhagwan/fzf-lua", -- optional
     },
-    opts = {},
+    opts = {
+      disable_context_highlighting = true,
+    },
     cmd = { "Neogit", "CodeDiff" },
     keys = {
       { "<leader>gg", "<cmd>Neogit<cr>",                 desc = "Neogit status" },

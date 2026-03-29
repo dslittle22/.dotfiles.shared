@@ -12,6 +12,12 @@ return {
     { "<leader>zb", "<cmd>FzfLua git_branches<cr>",           desc = "Git branches" },
     { "<leader>zo", "<cmd>FzfLua oldfiles cwd_only=true<cr>", desc = "Recent files (oldfiles)" },
     { "<leader>zH", "<cmd>FzfLua helptags<cr>",               desc = "Help tags" },
+    vim.keymap.set("n", "<leader>zf", function()
+      require("fzf-lua").live_grep({
+        rg_opts =
+        "--fixed-strings --ignore-case --column --line-number --no-heading --color=always -g '!.git'"
+      })
+    end)
   },
   opts = {
     files = {

@@ -14,6 +14,14 @@ return {
       bend.setup({ v2 = true })
 
       require("typescript-tools").setup({
+        single_file_support = false,
+        root_dir = function(bufnr, on_dir)
+          local bufname = vim.api.nvim_buf_get_name(bufnr)
+          if not bufname:match("^/") then
+            return
+          end
+          on_dir(require("typescript-tools.utils").get_root_dir(bufnr))
+        end,
         settings = {
           tsserver_path = bend.getTsServerPathForCurrentFile(),
           tsserver_plugins = {
@@ -70,6 +78,23 @@ return {
       { "<leader>tf", function() require("neotest").run.run(vim.fn.expand("%")) end,   desc = "Run file tests" },
       { "<leader>to", function() require("neotest").output.open({ enter = true }) end, desc = "Test output" },
       { "<leader>ts", function() require("neotest").summary.toggle() end,              desc = "Test summary" },
+    },
+  },
+
+  {
+    "saghen/blink.cmp",
+    opts = {
+      sources = {
+        default = { "hs_translations" },
+        providers = {
+          hs_translations = {
+            name = "Translations",
+            module = "blink-hs-translations",
+            score_offset = -3,
+            async = true,
+          },
+        },
+      },
     },
   },
 }
