@@ -25,3 +25,5 @@ vim.opt.history = 1000
 vim.opt.undolevels = 1000
 vim.opt.updatetime = 50
 vim.opt.confirm = true
+
+vim.opt.grepprg = "rg --vimgrep --smart-case"
