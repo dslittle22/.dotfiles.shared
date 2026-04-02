@@ -110,10 +110,4 @@ local plugins = {
 
 }
 
-if require("hubspot").is_hubspot() then
-  for _, plugin in ipairs(require("hubspot.plugins")) do
-    table.insert(plugins, plugin)
-  end
-end
-
 return plugins
