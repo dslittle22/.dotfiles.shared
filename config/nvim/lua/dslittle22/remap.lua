@@ -1,4 +1,7 @@
 vim.keymap.set('i', '<M-BS>', '<C-w>')
+
+-- Allow window navigation from terminal mode without needing to escape first
+vim.keymap.set("t", "<C-w>", "<C-\\><C-n><C-w>", { desc = "Window nav from terminal mode" })
 vim.keymap.set('n', '<C-b>', '<C-6>')
 
 -- when in visual mode, J and K to move line up and down

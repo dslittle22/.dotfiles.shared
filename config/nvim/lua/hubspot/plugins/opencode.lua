@@ -8,14 +8,14 @@ return {
   "nickjvandyke/opencode.nvim",
   version = "*",
   keys = {
-    { "<C-.>", function() require("opencode").toggle() end, desc = "Toggle opencode" },
-    { "<C-a>", function() require("opencode").ask() end, mode = { "n", "v" }, desc = "Ask opencode" },
-    { "<C-x>", function() require("opencode").select() end, mode = { "n", "v" }, desc = "Execute opencode action" },
-    { "go", function() return require("opencode").operator("@this ") end, mode = { "n", "v" }, expr = true, desc = "Add range to opencode" },
-    { "goo", function() return require("opencode").operator("@this ") .. "_" end, expr = true, desc = "Add line to opencode" },
-    { "<S-C-u>", function() require("opencode").command("session.half.page.up") end, desc = "Scroll opencode up" },
+    { "<C-.>",   function() require("opencode").toggle() end,                          desc = "Toggle opencode" },
+    { "<C-a>",   function() require("opencode").ask() end,                             mode = { "n", "v" },          desc = "Ask opencode" },
+    { "<C-x>",   function() require("opencode").select() end,                          mode = { "n", "v" },          desc = "Execute opencode action" },
+    { "go",      function() return require("opencode").operator("@this ") end,         mode = { "n", "v" },          expr = true,                     desc = "Add range to opencode" },
+    { "goo",     function() return require("opencode").operator("@this ") .. "_" end,  expr = true,                  desc = "Add line to opencode" },
+    { "<S-C-u>", function() require("opencode").command("session.half.page.up") end,   desc = "Scroll opencode up" },
     { "<S-C-d>", function() require("opencode").command("session.half.page.down") end, desc = "Scroll opencode down" },
-    { "<C-q>", function() require("opencode.terminal").close(cmd, term_opts) end, desc = "Close opencode" },
+    { "<C-q>",   function() require("opencode.terminal").close(cmd, term_opts) end,    desc = "Close opencode" },
   },
   config = function()
     -- Override server start/stop/toggle to use dvx wrapper
