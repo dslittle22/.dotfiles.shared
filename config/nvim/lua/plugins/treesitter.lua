@@ -14,7 +14,12 @@ return {
     end,
   },
 
-  { 'nvim-treesitter/nvim-treesitter-context' },
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    opts = {
+      multiline_threshold = 10, -- Maximum number of lines to show for a single context
+    }
+  },
 
   {
     'windwp/nvim-ts-autotag',

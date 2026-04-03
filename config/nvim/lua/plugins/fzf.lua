@@ -18,7 +18,7 @@ return {
     vim.keymap.set("n", "<leader>zf", function()
       require("fzf-lua").live_grep({
         rg_opts =
-        "--fixed-strings --ignore-case --column --line-number --no-heading --color=always -g '!.git'"
+        "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --fixed-strings -e"
       })
     end)
   },

@@ -1,3 +1,11 @@
+vim.api.nvim_create_user_command('Svc', function()
+  local dir = vim.fn.stdpath('config') .. '/lua/dslittle22'
+  for _, file in ipairs({ 'remap', 'settings', 'pickers' }) do
+    vim.cmd('source ' .. dir .. '/' .. file .. '.lua')
+  end
+  vim.notify('Reloaded config')
+end, {})
+
 vim.keymap.set('i', '<M-BS>', '<C-w>')
 
 -- Allow window navigation from terminal mode without needing to escape first
@@ -23,6 +31,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', 'gr', function() require('fzf-lua').lsp_references() end, opts)
+    vim.keymap.set('n', 'gR', function() require('dslittle22.pickers').buffer_references() end, opts)
     vim.keymap.set('n', 'gn', vim.lsp.buf.rename, opts)
     vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
     vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help, opts)
