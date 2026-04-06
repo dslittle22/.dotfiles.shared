@@ -19,7 +19,7 @@ if is_hubspot then
   table.insert(sources, 'copilot')
   providers.hs_translations = {
     name = 'Translations',
-    module = 'blink-hs-translations',
+    module = 'hubspot.blink-hs-translations',
     score_offset = -3,
     async = true,
   }

@@ -5,17 +5,18 @@ end
 -- HubSpot-specific plugins
 vim.pack.add({
   'https://github.com/nvim-lua/plenary.nvim',
+  'https://github.com/nickjvandyke/opencode.nvim',
+  'https://github.com/nvim-neotest/neotest',
+  'https://github.com/nvim-neotest/nvim-nio',
+  { src = 'https://github.com/HubSpotEngineering/neotest-hs-jasmine' },
+  -- TODO: when neovim/neovim#37727 lands, use local path for development:
+  -- { src = '~/src/neotest-hs-jasmine' },
+  { src = 'git@github.com:HubSpotEngineering/bend.nvim.git' },
   -- Copilot
   'https://github.com/zbirenbaum/copilot.lua',
   'https://github.com/copilotlsp-nvim/copilot-lsp',
   'https://github.com/giuxtaposition/blink-cmp-copilot',
-  -- Opencode
-  { src = 'https://github.com/nickjvandyke/opencode.nvim', version = '*' },
-  -- Neotest
-  'https://github.com/nvim-neotest/neotest',
-  'https://github.com/nvim-neotest/nvim-nio',
-  -- Bend (via SSH)
-  { src = 'git@github.com:HubSpotEngineering/bend.nvim.git' },
+  'https://github.com/pmizio/typescript-tools.nvim',
 })
 
 -- Copilot setup
@@ -32,7 +33,6 @@ require('copilot').setup({
   },
 })
 
--- Bend + typescript-tools setup
 local bend = require('bend')
 bend.setup({ v2 = true })
 
@@ -90,14 +90,21 @@ vim.keymap.set('n', '<leader>wp', require('hubspot.bend_picker').pick, { desc = 
 vim.keymap.set('n', '<C-.>', function() require('opencode').toggle() end, { desc = 'Toggle opencode' })
 vim.keymap.set({ 'n', 'v' }, '<C-a>', function() require('opencode').ask() end, { desc = 'Ask opencode' })
 vim.keymap.set({ 'n', 'v' }, '<C-x>', function() require('opencode').select() end, { desc = 'Execute opencode action' })
-vim.keymap.set({ 'n', 'v' }, 'go', function() return require('opencode').operator('@this ') end, { expr = true, desc = 'Add range to opencode' })
-vim.keymap.set('n', 'goo', function() return require('opencode').operator('@this ') .. '_' end, { expr = true, desc = 'Add line to opencode' })
-vim.keymap.set('n', '<S-C-u>', function() require('opencode').command('session.half.page.up') end, { desc = 'Scroll opencode up' })
-vim.keymap.set('n', '<S-C-d>', function() require('opencode').command('session.half.page.down') end, { desc = 'Scroll opencode down' })
-vim.keymap.set('n', '<C-q>', function() require('opencode.terminal').close(opencode_cmd, opencode_term_opts) end, { desc = 'Close opencode' })
+vim.keymap.set({ 'n', 'v' }, 'go', function() return require('opencode').operator('@this ') end,
+  { expr = true, desc = 'Add range to opencode' })
+vim.keymap.set('n', 'goo', function() return require('opencode').operator('@this ') .. '_' end,
+  { expr = true, desc = 'Add line to opencode' })
+vim.keymap.set('n', '<S-C-u>', function() require('opencode').command('session.half.page.up') end,
+  { desc = 'Scroll opencode up' })
+vim.keymap.set('n', '<S-C-d>', function() require('opencode').command('session.half.page.down') end,
+  { desc = 'Scroll opencode down' })
+vim.keymap.set('n', '<C-q>', function() require('opencode.terminal').close(opencode_cmd, opencode_term_opts) end,
+  { desc = 'Close opencode' })
 
 -- Keymaps: neotest
 vim.keymap.set('n', '<leader>tn', function() require('neotest').run.run() end, { desc = 'Run nearest test' })
-vim.keymap.set('n', '<leader>tf', function() require('neotest').run.run(vim.fn.expand('%')) end, { desc = 'Run file tests' })
-vim.keymap.set('n', '<leader>to', function() require('neotest').output.open({ enter = true }) end, { desc = 'Test output' })
+vim.keymap.set('n', '<leader>tf', function() require('neotest').run.run(vim.fn.expand('%')) end,
+  { desc = 'Run file tests' })
+vim.keymap.set('n', '<leader>to', function() require('neotest').output.open({ enter = true }) end,
+  { desc = 'Test output' })
 vim.keymap.set('n', '<leader>ts', function() require('neotest').summary.toggle() end, { desc = 'Test summary' })

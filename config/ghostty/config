@@ -18,7 +18,7 @@
 # key =value
 # key = value
 
-theme = Nightfox
+theme = alabaster-dark
 font-thicken = true
 keybind = cmd+backspace=text:\x15
 keybind = super+ctrl+d=new_split:left
