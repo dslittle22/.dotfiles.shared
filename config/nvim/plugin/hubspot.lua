@@ -17,6 +17,7 @@ vim.pack.add({
   'https://github.com/copilotlsp-nvim/copilot-lsp',
   'https://github.com/giuxtaposition/blink-cmp-copilot',
   'https://github.com/pmizio/typescript-tools.nvim',
+  'https://github.com/neovim/nvim-lspconfig',
 })
 
 -- Copilot setup
@@ -53,6 +54,22 @@ require('typescript-tools').setup({
   },
 })
 
+-- ESLint LSP with auto-fix on save
+local base_eslint_on_attach = vim.lsp.config.eslint.on_attach
+vim.lsp.config('eslint', {
+  on_attach = function(client, bufnr)
+    if base_eslint_on_attach then
+      base_eslint_on_attach(client, bufnr)
+    end
+
+    vim.api.nvim_create_autocmd('BufWritePre', {
+      buffer = bufnr,
+      command = 'LspEslintFixAll',
+    })
+  end,
+})
+vim.lsp.enable('eslint')
+
 -- Opencode setup
 local opencode_cmd = 'dvx opencode --port'
 local opencode_term_opts = {
@@ -81,6 +98,9 @@ require('neotest').setup({
     require('neotest-hs-jasmine'),
   },
 })
+
+-- Translation hover/go-to-definition keymaps
+require('hubspot.blink-hs-translations').setup()
 
 -- Keymaps: test_toggle and bend_picker
 vim.keymap.set('n', '<leader>tt', require('hubspot.test_toggle').toggle, { desc = 'Toggle test/source file' })

@@ -10,7 +10,7 @@ require('lualine').setup({
     lualine_b = { { 'branch', icons_enabled = false }, 'diff', 'diagnostics' },
     lualine_c = { { 'filename', path = 1, file_status = true, shorting_target = 40 } },
     lualine_x = {
-      { 'lsp_status', ignore_lsp = { 'eslint', 'null-ls' }, show_name = false },
+      { 'lsp_status', show_name = false },
       { 'filetype',   icon_only = true },
     },
     lualine_y = { 'searchcount', 'progress' },
