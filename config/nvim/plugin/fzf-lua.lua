@@ -11,16 +11,11 @@ require('fzf-lua').setup({
       ['ctrl-a'] = 'select-all',
     },
   },
-  -- files = {
-  --   fzf_opts = {
-  --     ['--history'] = vim.fn.stdpath('data') .. '/fzf-lua-files-history',
-  --   },
-  -- },
-  -- grep = {
-  --   fzf_opts = {
-  --     ['--history'] = vim.fn.stdpath('data') .. '/fzf-lua-grep-history',
-  --   },
-  -- },
+  grep = {
+    fzf_opts = {
+      ['--history'] = vim.fn.stdpath('data') .. '/fzf-lua-grep-history',
+    },
+  },
 })
 
 vim.keymap.set('n', '<leader>p', '<cmd>FzfLua files<cr>', { desc = 'Find files' })
