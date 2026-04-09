@@ -13,7 +13,15 @@ vim.pack.add({
 
 
 require('mini.files').setup({
-  windows = { preview = true }
+  windows = {
+    preview = true,
+    width_preview = math.floor(vim.o.columns * 0.5),
+  },
+  content = {
+    filter = function(entry)
+      return entry.name ~= '.DS_Store'
+    end,
+  },
 })
 
 vim.keymap.set("n", "leaderE", "<Cmd>lua MiniFiles.open()<CR>")
