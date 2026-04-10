@@ -1,3 +1,6 @@
+vim.keymap.set('n', ';', ':')
+vim.keymap.set('n', ':', ';')
+
 -- opt-backspace = delete word
 vim.keymap.set('i', '<M-BS>', '<C-w>')
 
