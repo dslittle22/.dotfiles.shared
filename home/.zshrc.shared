@@ -231,37 +231,37 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 [ -f "/Users/dannylittle/.ghcup/env" ] && source "/Users/dannylittle/.ghcup/env" # ghcup-env
 
 fzf-history-widget() {
-  local selected num
+  local selected
   setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
 
   local awk_filter='
-  {
-    gsub(/^ +/, "")
-    ts = int($2)
-    delta = systime() - ts
-    delta_days = int(delta / 86400)
-    if (delta < 0) {
-      $2="+" (-delta_days) "d"
-    } else if (delta_days < 1 && delta < 72000) {
-      $2=strftime("%H:%M", ts)
-    } else if (delta_days == 0) {
-      $2="1d"
-    } else {
-      $2=delta_days "d"
+  /^: [0-9]+:[0-9]+;/ {
+    match($0, /^: ([0-9]+):[0-9]+;(.*)/, m)
+    timestamps[m[2]] = int(m[1])
+    cmds[++n] = m[2]
+  }
+  END {
+    now = systime()
+    for (i = n; i >= 1; i--) {
+      cmd = cmds[i]
+      if (seen[cmd]++) continue
+      ts = timestamps[cmd]
+      delta = now - ts
+      delta_days = int(delta / 86400)
+      if (delta < 0) { age = "+" (-delta_days) "d" }
+      else if (delta_days < 1 && delta < 72000) { age = strftime("%H:%M", ts) }
+      else if (delta_days == 0) { age = "1d" }
+      else { age = delta_days "d" }
+      printf "%s\t%s\n", age, cmd
     }
-  line=$0; $1=""; $2=""
-  if (!seen[$0]++) { print line; fflush() }
   }'
 
-selected=( $(fc -rl -t '%s' 1 | gawk "$awk_filter" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%}
-  $FZF_DEFAULT_OPTS --with-nth 2.. --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} --tiebreak=index --no-multi" fzf) )
+  selected=$(gawk "$awk_filter" "$HISTFILE" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%}
+    $FZF_DEFAULT_OPTS --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} --tiebreak=index --no-multi" fzf)
 
   local ret=$?
   if [ -n "$selected" ]; then
-    num=$selected[1]
-    if [ -n "$num" ]; then
-      zle vi-fetch-history -n $num
-    fi
+    LBUFFER="${selected#*	}"
   fi
   zle reset-prompt
   return $ret
@@ -269,6 +269,5 @@ selected=( $(fc -rl -t '%s' 1 | gawk "$awk_filter" | FZF_DEFAULT_OPTS="--height 
 
 zle -N fzf-history-widget
 bindkey '^R' fzf-history-widget
-
 
 GOPATH=$HOME/.go
