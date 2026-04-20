@@ -6,15 +6,22 @@ vim.pack.add({
 
 vim.g.copilot_nes_debounce = 500
 require('copilot').setup({
-  suggestion = { enabled = false },
+  suggestion = { enabled = false, keymap = { accept = false } },
   panel = { enabled = false },
   nes = {
     enabled = true, -- requires copilot-lsp as a dependency
-    -- auto_trigger = false,
+    auto_trigger = true,
     keymap = {
-      accept_and_goto = "<leader><Tab>",
+      accept_and_goto = "<M-l>",
       accept = false,
       dismiss = "<Esc>",
     },
   },
 })
+
+-- Insert mode NES acceptance (nes.keymap only registers normal mode)
+vim.keymap.set('i', '<M-l>', function()
+  local nes = require("copilot-lsp.nes")
+  nes.apply_pending_nes()
+  nes.walk_cursor_end_edit()
+end, { desc = "Accept NES suggestion (insert mode)" })
