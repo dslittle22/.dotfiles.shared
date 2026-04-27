@@ -4,6 +4,8 @@ vim.pack.add({
   'https://github.com/neovim/nvim-lspconfig',
   'https://github.com/pmizio/typescript-tools.nvim',
   'https://github.com/folke/lazydev.nvim',
+  'https://github.com/mfussenegger/nvim-jdtls',
+  'https://github.com/youyoumu/pretty-ts-errors.nvim'
 })
 
 require('mason').setup()
@@ -16,6 +18,8 @@ end
 require('lazydev').setup()
 
 vim.lsp.enable('lua_ls')
+
+vim.lsp.enable("jdtls")
 
 vim.diagnostic.config({
   virtual_text = true,

@@ -46,6 +46,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 
 
+vim.keymap.set('n', '<leader>zc', function()
+  require('fzf-lua').files({ cwd = '~/.dotfiles.shared/config/nvim' })
+end, { desc = 'Find nvim config files' })
+
 vim.keymap.set('n', '<leader>zf', function()
   require('fzf-lua').live_grep({
     rg_opts = '--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --fixed-strings -e'

@@ -13,23 +13,6 @@ vim.pack.add({
 })
 
 
-require('mini.files').setup({
-  windows = {
-    preview = true,
-    width_preview = math.floor(vim.o.columns * 0.5),
-  },
-  content = {
-    filter = function(entry)
-      return entry.name ~= '.DS_Store'
-    end,
-  },
-})
-
-vim.keymap.set("n", "<leader>E", "<Cmd>lua MiniFiles.open()<CR>")
-vim.keymap.set('n', '<leader>e', function()
-  if not MiniFiles.close() then MiniFiles.open(vim.api.nvim_buf_get_name(0)) end
-end, { desc = "Toggle file explorer (current file)" })
-
 vim.cmd.colorscheme('alabaster')
 
 require("nvim-autopairs").setup()
