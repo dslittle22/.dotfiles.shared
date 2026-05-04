@@ -29,10 +29,22 @@ end, { desc = "Copy relative file path" })
 
 vim.keymap.set("n", "<leader>cl", function()
   local path = vim.fn.fnamemodify(vim.fn.expand("%"), ":.")
-  local line = path .. ":" .. vim.fn.line(".")
+  local line = path .. "#" .. vim.fn.line(".")
   vim.fn.setreg("+", line)
   vim.notify(line)
 end, { desc = "Copy relative file path with line number" })
+
+vim.keymap.set("v", "<leader>cl", function()
+  local path = vim.fn.fnamemodify(vim.fn.expand("%"), ":.")
+  local l1 = vim.fn.getpos('v')[2]
+  local l2 = vim.fn.getpos('.')[2]
+  local start_line = math.min(l1, l2)
+  local end_line = math.max(l1, l2)
+  local result = path .. "#" .. start_line .. "-" .. end_line
+  vim.fn.setreg("+", result)
+  vim.notify(result)
+end, { desc = "Copy relative file path with line range" })
+
 
 vim.keymap.set('n', '<leader>gc', '<cmd>GBrowse<cr>', { desc = 'Open on current branch' })
 vim.keymap.set('v', '<leader>gc', ":'<,'>GBrowse<cr>", { desc = 'Open on current branch' })
@@ -54,7 +66,7 @@ vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.keymap.set("t", "<C-Esc>", "<C-\\><C-n>")
 
 vim.keymap.set('n', '<leader>gm', ':Git commit -m ""<left>', { desc = 'Git commit with message' })
 
@@ -71,3 +83,16 @@ vim.keymap.set('n', '<leader>R', function()
   vim.cmd('mksession! ' .. vim.fn.fnameescape(session))
   vim.cmd('restart source ' .. vim.fn.fnameescape(session))
 end, { desc = 'Restart Neovim' })
+
+
+vim.keymap.set('n', '<leader>cd', function()
+  local base = vim.fn.trim(vim.fn.system('git merge-base master HEAD'))
+  vim.cmd('CodeDiff ' .. base .. ' HEAD')
+end)
+
+vim.api.nvim_create_user_command('CodeDiffPR', function(opts)
+  local target = opts.args ~= '' and opts.args or 'HEAD'
+  local base = vim.fn.trim(vim.fn.system('git merge-base master ' ..
+    target))
+  vim.cmd('CodeDiff ' .. base .. ' ' .. target)
+end, { nargs = '?' })

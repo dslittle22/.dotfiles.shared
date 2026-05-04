@@ -253,6 +253,19 @@ function M.setup()
       vim.keymap.set("n", "gd", translation_goto_definition, opts)
     end,
   })
+
+  local group = vim.api.nvim_create_augroup("BlinkHsTranslations", { clear = true })
+  vim.api.nvim_create_autocmd("BufWritePost", {
+    group = group,
+    pattern = "*en.lyaml",
+    callback = function(args)
+      local root = vim.fs.root(args.buf, ".git")
+      if root then
+        cache[root] = nil
+        lookup[root] = nil
+      end
+    end,
+  })
 end
 
 return M
