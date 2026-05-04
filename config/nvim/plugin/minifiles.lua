@@ -19,7 +19,6 @@ local filter_hide = function(fs_entry)
 end
 
 local toggle_dotfiles = function()
-  print("hey there")
   show_dotfiles = not show_dotfiles
   local new_filter = show_dotfiles and filter_show or filter_hide
   MiniFiles.refresh({ content = { filter = new_filter } })
@@ -40,5 +39,5 @@ require('mini.files').setup({
     width_preview = math.floor(vim.o.columns * 0.5),
   },
   content = {
-    filter = filter_show },
+    filter = filter_hide },
 })
