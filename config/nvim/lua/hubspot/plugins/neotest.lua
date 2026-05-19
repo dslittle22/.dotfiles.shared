@@ -1,7 +1,7 @@
 vim.pack.add({
   'https://github.com/nvim-neotest/neotest',
   'https://github.com/nvim-neotest/nvim-nio',
-  { src = 'https://github.com/HubSpotEngineering/neotest-hs-jasmine' },
+  { src = 'git@github.com:HubSpotShare/neotest-hs-jasmine.git' },
   -- TODO: when neovim/neovim#37727 lands, use local path for development:
   -- { src = '~/src/neotest-hs-jasmine' },
 })
@@ -10,7 +10,7 @@ vim.pack.add({
 vim.api.nvim_create_autocmd('PackChanged', {
   callback = function(ev)
     if ev.data.spec.name == 'neotest-hs-jasmine' and (ev.data.kind == 'install' or ev.data.kind == 'update') then
-      vim.system({ 'yarn', '--cwd', ev.data.path .. '/runner', 'install' })
+      vim.system({ 'bend', 'yarn', 'install' }, { cwd = ev.data.path .. '/runner' })
     end
   end,
 })

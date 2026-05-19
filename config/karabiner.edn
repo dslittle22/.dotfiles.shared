@@ -55,14 +55,6 @@
                         [:!OQspacebar :vk_none]
                 ]}
 
-
-
-
-
-
-
-
-
         {:des "caps lock = escape (you can hold shift to get caps)"
         :rules [:macbook [:caps_lock :escape]]}
 
@@ -80,8 +72,6 @@
         :rules [:macbook
                 [:backslash :vk_none nil {:alone [:backslash] :held [:!CTOleft_shift] :params {:held 100}}]
         ]}
-
-
 
         ;; {:des "test for double-tap mode"
         ;; :rules  [
