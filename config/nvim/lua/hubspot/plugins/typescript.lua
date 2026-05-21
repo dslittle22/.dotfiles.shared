@@ -1,5 +1,5 @@
 vim.pack.add({
-  { src = 'git@github.com:HubSpotShare/bend.nvim.git' },
+  'git@github.com:HubSpotShare/bend.nvim.git',
   'https://github.com/pmizio/typescript-tools.nvim',
   'https://github.com/neovim/nvim-lspconfig',
 })
