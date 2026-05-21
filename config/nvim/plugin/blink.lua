@@ -12,6 +12,14 @@ local providers = {
     module = 'lazydev.integrations.blink',
     score_offset = 100,
   },
+  snippets = {
+    opts = {
+      extended_filetypes = {
+        typescript = { 'javascript' },
+        typescriptreact = { 'javascript' },
+      },
+    },
+  },
   copilot = {
     name = 'copilot',
     module = 'blink-cmp-copilot',
