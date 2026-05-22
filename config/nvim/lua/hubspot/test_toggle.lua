@@ -1,7 +1,7 @@
 local M = {}
 
 local extensions = { "ts", "tsx", "js", "jsx" }
-local test_suffixes = { "-test", ".test", ".spec" }
+local test_suffixes = { ".test", ".spec", "-test" }
 
 local function is_test_file(path)
   return path:match("/static/test/spec/") ~= nil
