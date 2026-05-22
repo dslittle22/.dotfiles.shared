@@ -6,15 +6,6 @@ vim.pack.add({
   -- { src = '~/src/neotest-hs-jasmine' },
 })
 
--- Install runner dependencies on plugin install/update
-vim.api.nvim_create_autocmd('PackChanged', {
-  callback = function(ev)
-    if ev.data.spec.name == 'neotest-hs-jasmine' and (ev.data.kind == 'install' or ev.data.kind == 'update') then
-      vim.system({ 'bend', 'yarn', 'install' }, { cwd = ev.data.path .. '/runner' })
-    end
-  end,
-})
-
 require('neotest').setup({
   adapters = {
     require('neotest-hs-jasmine'),
